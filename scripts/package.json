@@ -1,0 +1,21 @@
+{
+  "name": "infinite-fusion-finder-scripts",
+  "version": "0.0.1pre",
+  "main": "index.js",
+  "scripts": {
+    "#": "see Makefile for scripts."
+  },
+  "author": "",
+  "description": "",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "ramda": "^0.30.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^22.5.4",
+    "@types/ramda": "^0.30.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}
