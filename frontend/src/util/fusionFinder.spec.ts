@@ -154,7 +154,10 @@ describe('fuseTypes', () => {
     ]
     for (const test of tests) {
         it(`${test.inputHead!.name} + ${test.inputBody!.name} => ${test.expectedTypes}`, () => {
-            const fusedTypes = fuseTypes({ head: test.inputHead!, body: test.inputBody! })
+            const fusedTypes = fuseTypes({
+                head: test.inputHead!,
+                body: test.inputBody!,
+            })
             const expectedTypesProper = test.expectedTypes.map((type, i) => ({ type, slot: i + 1 }))
             expect(fusedTypes).toEqual(expectedTypesProper)
         })
@@ -166,7 +169,7 @@ describe('fuse', () => {
     const body: PokemonV1 = testmons[2]
 
     it('should fuse stats correctly', () => {
-        const fusedStats = fuseStats({ head, body })
+        const fusedStats = fuseStats({ head: head, body: body })
         expect(fusedStats).toEqual({
             hp: expect.closeTo(66.67, 0.02),
             attack: expect.closeTo(73.33, 0.02),
@@ -178,7 +181,7 @@ describe('fuse', () => {
     })
 
     it('should fuse moves correctly', () => {
-        const fusedMoves = fuseMoves({ head, body })
+        const fusedMoves = fuseMoves({ head: head, body: body })
         expect(fusedMoves.levelup).toEqual(
             expect.arrayContaining([
                 { name: 'tackle', level: 1, learn_method: 'levelup' },
@@ -206,7 +209,10 @@ describe('fuse', () => {
     })
 
     it('should fuse abilities correctly', () => {
-        const fusedAbilities = fuseAbilities({ head, body })
+        const fusedAbilities = fuseAbilities({
+            head: head,
+            body: body,
+        })
         expect(fusedAbilities).toEqual(
             expect.arrayContaining([
                 { ability: 'overgrow', slot: 1, from: 'onemon' },
@@ -216,7 +222,7 @@ describe('fuse', () => {
     })
 
     it('should fuse types correctly', () => {
-        const fusedTypes = fuseTypes({ head, body })
+        const fusedTypes = fuseTypes({ head: head, body: body })
         expect(fusedTypes).toEqual(
             expect.arrayContaining([
                 { type: 'grass', slot: 1 },
@@ -272,14 +278,29 @@ describe('fuse', () => {
 })
 
 describe('findFusionsV1', () => {
+    describe('Full data', () => {
+        describe('name', () => {
+            it('should find lots of fusions', () => {
+                const fusions = findFusionsV1({ names: ['pikachu'] }, pokemonData)
+                expect(fusions).toHaveLength((pokemonData.length - 1) * 2 + 1)
+            })
+        })
+    })
+
     it('should find all fusions', () => {
         const fusions = findFusionsV1({}, pokemonDataSample)
         expect(fusions).toHaveLength(pokemonDataSample.length * pokemonDataSample.length)
     })
     describe('name', () => {
         it('should find 49 fusions (24 + 24 + 1)', () => {
-            const fusions = findFusionsV1({ name: 'pikachu' }, pokemonDataSample)
+            const fusions = findFusionsV1({ names: ['pikachu'] }, pokemonDataSample)
             expect(fusions).toHaveLength(49)
+        })
+    })
+    describe('name', () => {
+        it('should find 2 fusions', () => {
+            const fusions = findFusionsV1({ names: ['bulbasaur', 'squirtle'] }, pokemonDataSample)
+            expect(fusions).toHaveLength(2)
         })
     })
 })

@@ -4,52 +4,65 @@
 import { PokemonV1 } from '../data/pokemon-data'
 import { uniqBy } from 'lodash'
 
-type FusionComponents = {
-    head: PokemonV1
-    body: PokemonV1
+const uniqByName = <T extends { name: string }>(arr: T[]) => uniqBy(arr, (v) => v.name)
+
+type FusionComponents<T> = {
+    head: T
+    body: T
 }
 
-function fuseStats({ head, body }: FusionComponents): PokemonV1['stats'] {
+function fuseStats({
+    head: { stats: head },
+    body: { stats: body },
+}: FusionComponents<PokemonV1>): PokemonV1['stats'] {
     return {
-        hp: (2 * head.stats.hp + body.stats.hp) / 3,
-        attack: (head.stats.attack + 2 * body.stats.attack) / 3,
-        defense: (head.stats.defense + 2 * body.stats.defense) / 3,
-        specialAttack: (2 * head.stats.specialAttack + body.stats.specialAttack) / 3,
-        specialDefense: (2 * head.stats.specialDefense + body.stats.specialDefense) / 3,
-        speed: (head.stats.speed + 2 * body.stats.speed) / 3,
+        hp: (2 * head.hp + body.hp) / 3,
+        attack: (head.attack + 2 * body.attack) / 3,
+        defense: (head.defense + 2 * body.defense) / 3,
+        specialAttack: (2 * head.specialAttack + body.specialAttack) / 3,
+        specialDefense: (2 * head.specialDefense + body.specialDefense) / 3,
+        speed: (head.speed + 2 * body.speed) / 3,
     }
 }
 
-function fuseMoves({ head, body }: FusionComponents): PokemonV1['moves'] {
+function fuseMoves({
+    head: { moves: head },
+    body: { moves: body },
+}: FusionComponents<PokemonV1>): PokemonV1['moves'] {
     return {
         // TODO: Always show the earliest level at which the move is learned
-        levelup: uniqBy([...head.moves.levelup, ...body.moves.levelup], 'name'),
-        machine: uniqBy([...head.moves.machine, ...body.moves.machine], 'name'),
-        tutor: uniqBy([...head.moves.tutor, ...body.moves.tutor], 'name'),
-        egg: uniqBy([...head.moves.egg, ...body.moves.egg], 'name'),
+        levelup: uniqByName([...head.levelup, ...body.levelup]),
+        machine: uniqByName([...head.machine, ...body.machine]),
+        tutor: uniqByName([...head.tutor, ...body.tutor]),
+        egg: uniqByName([...head.egg, ...body.egg]),
     }
 }
 
-function fuseAbilities({ head, body }: FusionComponents): PokemonV1['abilities'] {
+function fuseAbilities({
+    head: { abilities: head, name: headName },
+    body: { abilities: body, name: bodyName },
+}: FusionComponents<PokemonV1>): PokemonV1['abilities'] {
     return uniqBy(
         [
-            ...head.abilities.map((a) => ({ ...a, from: head.name })),
-            ...body.abilities.map((a) => ({ ...a, from: body.name })),
+            ...head.map((a) => ({ ...a, from: headName })),
+            ...body.map((a) => ({ ...a, from: bodyName })),
         ],
         'ability',
     )
 }
 
-function isTypeNormalFlying(pokemon: PokemonV1) {
+function isTypeNormalFlying(types: PokemonV1['types']) {
     return (
-        pokemon.types.map((t) => t.type).includes('normal') &&
-        pokemon.types.map((t) => t.type).includes('flying')
+        types.map((t) => t.type).includes('normal') && types.map((t) => t.type).includes('flying')
     )
 }
 
-function fuseTypes({ head, body }: FusionComponents): PokemonV1['types'] {
-    let slot1Type = head.types[0].type
-    let slot2Type = body.types[1] ? body.types[1].type : body.types[0].type
+function fuseTypes({
+    head: { types: head },
+    body: { types: body },
+}: FusionComponents<PokemonV1>): PokemonV1['types'] {
+    let slot1Type = head[0].type
+    let slot2Type = body[1] ? body[1].type : body[0].type
 
     // https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Fusion#Typing
     // Dominant type clause
@@ -65,7 +78,7 @@ function fuseTypes({ head, body }: FusionComponents): PokemonV1['types'] {
     // If the head is already providing the element the body wants to provide,
     // the body will provide its primary type instead
     if (slot1Type === slot2Type) {
-        slot2Type = body.types[0].type
+        slot2Type = body[0].type
     }
 
     const fusedTypes = [{ slot: 1, type: slot1Type }]
@@ -75,17 +88,17 @@ function fuseTypes({ head, body }: FusionComponents): PokemonV1['types'] {
     return fusedTypes
 }
 
-export function fuse({ head, body }: FusionComponents): PokemonV1 {
+export function fuse(components: FusionComponents<PokemonV1>): PokemonV1 {
     return {
         version: 1,
         type: 'pokemon',
         ifDex: 0,
         nationalDex: 0,
         name: '',
-        stats: fuseStats({ head, body }),
-        moves: fuseMoves({ head, body }),
-        abilities: fuseAbilities({ head, body }),
-        types: fuseTypes({ head, body }),
+        stats: fuseStats(components),
+        moves: fuseMoves(components),
+        abilities: fuseAbilities(components),
+        types: fuseTypes(components),
     }
 }
 
@@ -121,10 +134,13 @@ export function findFusions(filterOptions: FusionFilterOptions, data: PokemonV1[
 }
 
 type FusionFilterOptionsV1 = {
-    name?: string
+    names?: string[]
 }
 
 export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: PokemonV1[]): Combo[] {
+    const { names = [] } = filterOptions
+
+    // Build all combos
     const allDexNums = data.map((pokemon) => pokemon.ifDex)
     let combos = []
     for (let i = 0; i < allDexNums.length; i++) {
@@ -133,23 +149,18 @@ export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: Pokemo
         }
     }
 
-    // Apply filters in the following order:
-
-    // 1. Use the most restrictive filters first
-    // 2. Use the filter that is the most inclusive next
-    // 3. Use the most complex filters last
-
-    if (filterOptions.name) {
-        // Filter by name
+    // Filter names
+    for (const name of names) {
+        const filterMon = data.filter((pokemon) => pokemon.name === name)
+        if (filterMon.length > 0) {
+            // Filter out all combos that do not include the pokemon with the matching name
+            combos = combos.filter(([head, body]) => {
+                return filterMon.some((pokemon) => pokemon.ifDex === head || pokemon.ifDex === body)
+            })
+        }
     }
 
-    const matchesName = data.filter((pokemon) => pokemon.name === filterOptions.name)
-    if (matchesName.length > 0) {
-        // Filter out all combos that do not include the pokemon with the matching name
-        combos = combos.filter(([head, body]) => {
-            return matchesName.some((pokemon) => pokemon.ifDex === head || pokemon.ifDex === body)
-        })
-    }
+    // Filter types
 
     return combos
 }
