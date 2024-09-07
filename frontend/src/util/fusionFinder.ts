@@ -11,6 +11,13 @@ type FusionComponents<T> = {
     body: T
 }
 
+function lookup(data: PokemonV1[], { ifDex }: { ifDex: number }): PokemonV1 {
+    if (ifDex > 470) {
+        return data.find((pokemon) => pokemon.ifDex === ifDex) as PokemonV1
+    }
+    return data[ifDex - 1]
+}
+
 function fuseStats({
     head: { stats: head },
     body: { stats: body },
@@ -113,32 +120,36 @@ type FusionFilterOptions = {
     minSpecialAttack: number
     minSpecialDefense: number
     minSpeed: number
+    minBST: number
 }
 
 type Combo = [number, number]
 
-export function findFusions(filterOptions: FusionFilterOptions, data: PokemonV1[]): Combo[] {
-    const allDexNums = data.map((pokemon) => pokemon.ifDex)
-
-    // Apply filters in the following order:
-
-    // 1. Use the most restrictive filters first
-    // 2. Use the filter that is the most inclusive next
-    // 3. Use the most complex filters last
-
-    if (filterOptions.names.length > 0) {
-        // Filter by names
-    }
-
+export function findFusions(_filterOptions: FusionFilterOptions, _data: PokemonV1[]): Combo[] {
+    // TODO: implement
+    console.log({ _filterOptions, _data })
     return []
 }
 
 type FusionFilterOptionsV1 = {
     names?: string[]
+    moves?: string[]
+    abilities?: string[]
+    type?: string
+
+    min?: {
+        hp?: number
+        attack?: number
+        defense?: number
+        specialAttack?: number
+        specialDefense?: number
+        speed?: number
+        bst?: number
+    }
 }
 
 export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: PokemonV1[]): Combo[] {
-    const { names = [] } = filterOptions
+    const { names = [], abilities = [], moves = [], min = {} } = filterOptions
 
     // Build all combos
     const allDexNums = data.map((pokemon) => pokemon.ifDex)
@@ -160,7 +171,78 @@ export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: Pokemo
         }
     }
 
-    // Filter types
+    for (const ability of abilities) {
+        // Filter by ability
+        // Find all pokemon with this ability
+        const abilityMons = data.filter((pokemon) => {
+            return pokemon.abilities.some((abilityEntry) => abilityEntry.ability === ability)
+        })
+
+        // Filter out all combos that do not include a pokemon with the matching ability
+        combos = combos.filter(([head, body]) => {
+            return abilityMons.some((pokemon) => pokemon.ifDex === head || pokemon.ifDex === body)
+        })
+    }
+
+    for (const move of moves) {
+        // Filter by move
+        // Find all pokemon with this move
+        const moveMons = data.filter((pokemon) => {
+            return Object.values(pokemon.moves).some((moveList) => {
+                return moveList.some((moveEntry) => moveEntry.name === move)
+            })
+        })
+
+        // Filter out all combos that do not include a pokemon with the matching move
+        combos = combos.filter(([head, body]) => {
+            return moveMons.some((pokemon) => pokemon.ifDex === head || pokemon.ifDex === body)
+        })
+    }
+
+    // Apply stat minimums
+    const statKeys = [
+        'hp',
+        'attack',
+        'defense',
+        'specialAttack',
+        'specialDefense',
+        'speed',
+    ] as const
+    if (Object.keys(min).length > 0) {
+        combos = combos.filter(([head, body]) => {
+            const fusedStats = fuseStats({
+                head: lookup(data, { ifDex: head }),
+                body: lookup(data, { ifDex: body }),
+            })
+
+            for (const [key, minValue] of Object.entries(min)) {
+                if (statKeys.includes(key as any)) {
+                    if (fusedStats[key as keyof PokemonV1['stats']] < minValue) {
+                        return false
+                    }
+                }
+            }
+            if (min.bst) {
+                const bst = Object.values(fusedStats).reduce((acc, cur) => acc + cur)
+                if (bst < min.bst) {
+                    return false
+                }
+            }
+
+            return true
+        })
+    }
+
+    // Apply single-type constraint
+    if (filterOptions.type) {
+        combos = combos.filter(([head, body]) => {
+            const fusedTypes = fuseTypes({
+                head: lookup(data, { ifDex: head }),
+                body: lookup(data, { ifDex: body }),
+            })
+            return fusedTypes.some((type) => type.type === filterOptions.type)
+        })
+    }
 
     return combos
 }

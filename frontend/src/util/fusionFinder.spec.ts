@@ -280,9 +280,66 @@ describe('fuse', () => {
 describe('findFusionsV1', () => {
     describe('Full data', () => {
         describe('name', () => {
-            it('should find lots of fusions', () => {
+            it('filter by name', () => {
                 const fusions = findFusionsV1({ names: ['pikachu'] }, pokemonData)
                 expect(fusions).toHaveLength((pokemonData.length - 1) * 2 + 1)
+            })
+            it('filter by ability', () => {
+                const _fusions = findFusionsV1({ abilities: ['swift-swim'] }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by move', () => {
+                const _fusions = findFusionsV1({ moves: ['reflect'] }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by hp', () => {
+                const _fusions = findFusionsV1({ min: { hp: 10 } }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by hp again', () => {
+                const _fusions = findFusionsV1({ min: { hp: 120 } }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by bst', () => {
+                const _fusions = findFusionsV1({ min: { bst: 10 } }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by type', () => {
+                const _fusions = findFusionsV1({ type: 'water' }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by multiple 1', () => {
+                const _fusions = findFusionsV1(
+                    {
+                        moves: ['reflect'],
+                        abilities: ['swift-swim'],
+                        min: { bst: 10 },
+                        type: 'water',
+                    },
+                    pokemonData,
+                )
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by multiple 2', () => {
+                const _fusions = findFusionsV1(
+                    {
+                        moves: ['reflect'],
+                        min: { bst: 10 },
+                        type: 'water',
+                    },
+                    pokemonData,
+                )
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by multiple 3', () => {
+                const _fusions = findFusionsV1(
+                    {
+                        min: { bst: 10 },
+                        type: 'normal',
+                    },
+                    pokemonData,
+                )
+                expect(_fusions).toBeTruthy()
             })
         })
     })
