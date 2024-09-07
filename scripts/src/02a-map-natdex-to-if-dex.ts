@@ -1,16 +1,17 @@
-// Map National Dex to IF Dex
-// First, build a map from pokemon name to its NatDex Number (using out/pokemon-entries)
-// Then, build a map from pokemon name to its IF Dex Number (using extra_pokemon.txt)
-
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
+// @ts-expect-error moduleResolution:nodenext issue 52529
 import { globby } from 'globby'
 
 const POKEMON_SPECIES_DIR = path.resolve(__dirname, '../out/api-pokemon-species')
 const EXTRA_POKEMON_NAMES = path.resolve(__dirname, '../in/extra_pokemon_names.txt')
 
 const OUT_FILE = path.resolve(__dirname, '../out/natdex-to-ifdex.json')
+
+// Map National Dex to IF Dex
+// First, build a map from pokemon name to its NatDex Number (using out/pokemon-entries)
+// Then, build a map from pokemon name to its IF Dex Number (using extra_pokemon.txt)
 
 async function main(): Promise<void> {
     // 1. Build map from pokemon name to its NatDex Number
