@@ -1,12 +1,16 @@
-import { exportForTesting } from './fusionFinder'
+import { exportForTesting, findFusionsV1 } from './fusionFinder'
 import { PokemonV1 } from '../data/pokemon-data'
 
 import * as POKEMON_DATA from '../data/pokemon-index.json'
 
 const pokemonData: PokemonV1[] = []
+const pokemonDataSample: PokemonV1[] = [] // Samples #1-25
 let i = 0
 while (POKEMON_DATA[i] !== undefined) {
     pokemonData.push(POKEMON_DATA[i] as PokemonV1)
+    if (i < 25) {
+        pokemonDataSample.push(POKEMON_DATA[i] as PokemonV1)
+    }
     i++
 }
 
@@ -263,6 +267,19 @@ describe('fuse', () => {
                 { type: 'grass', slot: 1 },
                 { type: 'fire', slot: 2 },
             ],
+        })
+    })
+})
+
+describe('findFusionsV1', () => {
+    it('should find all fusions', () => {
+        const fusions = findFusionsV1({}, pokemonDataSample)
+        expect(fusions).toHaveLength(pokemonDataSample.length * pokemonDataSample.length)
+    })
+    describe('name', () => {
+        it('should find 49 fusions (24 + 24 + 1)', () => {
+            const fusions = findFusionsV1({ name: 'pikachu' }, pokemonDataSample)
+            expect(fusions).toHaveLength(49)
         })
     })
 })

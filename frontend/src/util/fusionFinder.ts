@@ -89,6 +89,71 @@ export function fuse({ head, body }: FusionComponents): PokemonV1 {
     }
 }
 
+type FusionFilterOptions = {
+    names: string[]
+    types: string[]
+    moves: string[]
+    abilities: string[]
+    minHp: number
+    minAttack: number
+    minDefense: number
+    minSpecialAttack: number
+    minSpecialDefense: number
+    minSpeed: number
+}
+
+type Combo = [number, number]
+
+export function findFusions(filterOptions: FusionFilterOptions, data: PokemonV1[]): Combo[] {
+    const allDexNums = data.map((pokemon) => pokemon.ifDex)
+
+    // Apply filters in the following order:
+
+    // 1. Use the most restrictive filters first
+    // 2. Use the filter that is the most inclusive next
+    // 3. Use the most complex filters last
+
+    if (filterOptions.names.length > 0) {
+        // Filter by names
+    }
+
+    return []
+}
+
+type FusionFilterOptionsV1 = {
+    name?: string
+}
+
+export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: PokemonV1[]): Combo[] {
+    const allDexNums = data.map((pokemon) => pokemon.ifDex)
+    let combos = []
+    for (let i = 0; i < allDexNums.length; i++) {
+        for (let j = 0; j < allDexNums.length; j++) {
+            combos.push([allDexNums[i], allDexNums[j]] as Combo)
+        }
+    }
+
+    // Apply filters in the following order:
+
+    // 1. Use the most restrictive filters first
+    // 2. Use the filter that is the most inclusive next
+    // 3. Use the most complex filters last
+
+    if (filterOptions.name) {
+        // Filter by name
+    }
+
+    const matchesName = data.filter((pokemon) => pokemon.name === filterOptions.name)
+    if (matchesName.length > 0) {
+        // Filter out all combos that do not include the pokemon with the matching name
+        combos = combos.filter(([head, body]) => {
+            return matchesName.some((pokemon) => pokemon.ifDex === head || pokemon.ifDex === body)
+        })
+    }
+
+    return combos
+}
+
 export const exportForTesting = {
     fuseStats,
     fuseMoves,
