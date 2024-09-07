@@ -6,14 +6,14 @@ import {
     RouterProvider,
 } from 'react-router-dom'
 
-import Home from './routes/home.tsx'
+import SearchPage from './routes/search.tsx'
 import ErrorBoundary from './routes/error-boundary'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />} errorElement={<ErrorBoundary />}>
-            <Route index element={<Home />} />
-            <Route path="*" element={<Home />} />
+            <Route index element={<SearchPage />} />
+            <Route path="*" element={<SearchPage />} />
 
             {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit

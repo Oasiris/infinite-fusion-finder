@@ -7,6 +7,7 @@ import { globby } from 'globby'
 import { ascend } from 'ramda'
 
 const inAscendingOrderByName = ascend((obj: { name: string }) => obj.name)
+const inAscendingOrderByIFDex = ascend((obj: { ifDex: number }) => obj.ifDex)
 const byTMID = (a: { tm_id?: string }, b: { tm_id?: string }) => a.tm_id!.localeCompare(b.tm_id)
 
 import { PokemonV1 } from './models/pokemon'
@@ -201,6 +202,8 @@ async function main() {
 
         allPokemonData.push(pokemon)
     }
+    allPokemonData.sort(inAscendingOrderByIFDex)
+
     // Write Pokemon index
     await fs.writeFile(OUT_POKEMON_INDEX_PATH, JSON.stringify(allPokemonData))
 }

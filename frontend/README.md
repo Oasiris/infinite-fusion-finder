@@ -1,24 +1,28 @@
-# D-CRAB
+## Notes
 
-<img src="public/crab-favicon.svg" width=192 height=192 />
+### Features I'd like to support
 
-This TypeScript React project was bootstrapped with **D-CRAB 2024** (**D**avid's **C**ustom **R**eact **A**pp **B**oilerplate).
+#### In both tools already
 
-This boilerplate uses the latest versions of Vite + TypeScript + SCSS as of August 2024, and includes React Router boilerplate code.
+-   Filter by move(s)
+-   Filter by ability
+-   Filter by type(s)
+-   Sort by BST
+-   Sort by specific base stat (Attack, Defense, etc)
 
-## Details
+#### In infinitefusiondex, not in Fusion Finder
 
--   React v18
-    -   React Router v6
--   TypeScript v5
--   SCSS
--   NPM
--   Auto-formatting and linting w/ [Prettier](https://prettier.io/)
+-   Type in dropdown to search for a Pokemon
+-   Filter to show fused only
+-   Filter by two-type combo
 
-Powered by Node.js LTS (v20) and Visual Studio Code.
+#### In Fusion Finder, not in infinitefusiondex
 
-## Setup
+-   Filter by specific base stat threshold (Atk >= 100, etc)
 
-This project is intended to be used with VS Code.
+#### Not in any app
 
-When opening the directory in VSCode, you will be prompted to install the [recommended extensions](./.vscode/extensions.json). Install these as prompted.
+-   View BST in table form
+-   View base stats in table form
+-   Filter by legendaries only / no legendaries
+-   Filter to show unfused only
