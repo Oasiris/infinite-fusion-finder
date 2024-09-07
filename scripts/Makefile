@@ -40,3 +40,7 @@ parse-tutor-moves-to-json:
 .PHONY: fetch-moves
 fetch-moves:
 	npx tsx src/b-fetch-moves.ts
+
+.PHONY: parse-machines-to-json
+parse-machines-to-json:
+	npx tsx src/c-parse-machines-to-json.ts

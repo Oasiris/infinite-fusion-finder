@@ -1,0 +1,912 @@
+[
+  {
+    "machine_id": "TM01",
+    "full_move_name": "Hone Claws",
+    "location": "Route 13 (Surf)",
+    "move_name": "hone-claws",
+    "move_id": 468
+  },
+  {
+    "machine_id": "TM02",
+    "full_move_name": "Dragon Claw",
+    "location": "Route 26",
+    "move_name": "dragon-claw",
+    "move_id": 337
+  },
+  {
+    "machine_id": "TM03",
+    "full_move_name": "Psyshock",
+    "location": "Saffron City (Gym)",
+    "move_name": "psyshock",
+    "move_id": 473
+  },
+  {
+    "machine_id": "TM04",
+    "full_move_name": "Calm Mind",
+    "location": "Cerulean Cave",
+    "move_name": "calm-mind",
+    "move_id": 347
+  },
+  {
+    "machine_id": "TM05",
+    "full_move_name": "Roar",
+    "location": "Celadon Mall, Route 32",
+    "move_name": "roar",
+    "move_id": 46
+  },
+  {
+    "machine_id": "TM06",
+    "full_move_name": "Toxic",
+    "location": "Fuchsia City (Gym)",
+    "move_name": "toxic",
+    "move_id": 92
+  },
+  {
+    "machine_id": "TM07",
+    "full_move_name": "Hail",
+    "location": "Seafoam Islands",
+    "move_name": "hail",
+    "move_id": 258
+  },
+  {
+    "machine_id": "TM08",
+    "full_move_name": "Bulk Up",
+    "location": "Viridian City (Surf)",
+    "move_name": "bulk-up",
+    "move_id": 339
+  },
+  {
+    "machine_id": "TM09",
+    "full_move_name": "Venoshock",
+    "location": "Mt. Moon",
+    "move_name": "venoshock",
+    "move_id": 474
+  },
+  {
+    "machine_id": "TM10",
+    "full_move_name": "Hidden Power",
+    "location": "Route 24 (Surf)",
+    "move_name": "hidden-power",
+    "move_id": 237
+  },
+  {
+    "machine_id": "TM11",
+    "full_move_name": "Sunny Day",
+    "location": "Cerulean City",
+    "move_name": "sunny-day",
+    "move_id": 241
+  },
+  {
+    "machine_id": "TM12",
+    "full_move_name": "Taunt",
+    "location": "Route 46 (Waterfall)",
+    "move_name": "taunt",
+    "move_id": 269
+  },
+  {
+    "machine_id": "TM13",
+    "full_move_name": "Ice Beam",
+    "location": "Game Corner",
+    "move_name": "ice-beam",
+    "move_id": 58
+  },
+  {
+    "machine_id": "TM14",
+    "full_move_name": "Blizzard",
+    "location": "Pokémon Mansion (Cinnabar)",
+    "move_name": "blizzard",
+    "move_id": 59
+  },
+  {
+    "machine_id": "TM15",
+    "full_move_name": "Hyper Beam",
+    "location": "Celadon Mall, Game Corner",
+    "move_name": "hyper-beam",
+    "move_id": 63
+  },
+  {
+    "machine_id": "TM16",
+    "full_move_name": "Light Screen",
+    "location": "(Only available in randomized mode)",
+    "move_name": "light-screen",
+    "move_id": 113
+  },
+  {
+    "machine_id": "TM17",
+    "full_move_name": "Protect",
+    "location": "Route 34 (Required Surf)",
+    "move_name": "protect",
+    "move_id": 182
+  },
+  {
+    "machine_id": "TM18",
+    "full_move_name": "Rain Dance",
+    "location": "Brine Road",
+    "move_name": "rain-dance",
+    "move_id": 240
+  },
+  {
+    "machine_id": "TM19",
+    "full_move_name": "Telekinesis",
+    "location": "Route 24",
+    "move_name": "telekinesis",
+    "move_id": 477
+  },
+  {
+    "machine_id": "TM20",
+    "full_move_name": "Safeguard",
+    "location": "Cerulean Cave",
+    "move_name": "safeguard",
+    "move_id": 219
+  },
+  {
+    "machine_id": "TM21",
+    "full_move_name": "Frustration",
+    "location": "Pewter City (Quest Reward)",
+    "move_name": "frustration",
+    "move_id": 218
+  },
+  {
+    "machine_id": "TM22",
+    "full_move_name": "Solar Beam",
+    "location": "Celadon City (Gym)",
+    "move_name": "solar-beam",
+    "move_id": 76
+  },
+  {
+    "machine_id": "TM23",
+    "full_move_name": "Smack Down",
+    "location": "Union Cave",
+    "move_name": "smack-down",
+    "move_id": 479
+  },
+  {
+    "machine_id": "TM24",
+    "full_move_name": "Thunderbolt",
+    "location": "Game Corner",
+    "move_name": "thunderbolt",
+    "move_id": 85
+  },
+  {
+    "machine_id": "TM25",
+    "full_move_name": "Thunder",
+    "location": "Power Plant",
+    "move_name": "thunder",
+    "move_id": 87
+  },
+  {
+    "machine_id": "TM26",
+    "full_move_name": "Earthquake",
+    "location": "Viridian City (Gym)",
+    "move_name": "earthquake",
+    "move_id": 89
+  },
+  {
+    "machine_id": "TM27",
+    "full_move_name": "Return",
+    "location": "(Only available in randomized mode)",
+    "move_name": "return",
+    "move_id": 216
+  },
+  {
+    "machine_id": "TM28",
+    "full_move_name": "Dig",
+    "location": "Celadon Mall, Route 15 (Surf, Strength)",
+    "move_name": "dig",
+    "move_id": 91
+  },
+  {
+    "machine_id": "TM29",
+    "full_move_name": "Psychic",
+    "location": "Saffron City",
+    "move_name": "psychic",
+    "move_id": 94
+  },
+  {
+    "machine_id": "TM30",
+    "full_move_name": "Shadow Ball",
+    "location": "Route 27",
+    "move_name": "shadow-ball",
+    "move_id": 247
+  },
+  {
+    "machine_id": "TM31",
+    "full_move_name": "Brick Break",
+    "location": "S.S. Anne",
+    "move_name": "brick-break",
+    "move_id": 280
+  },
+  {
+    "machine_id": "TM32",
+    "full_move_name": "Double Team",
+    "location": "Celadon Mall, Safari Zone Area 5",
+    "move_name": "double-team",
+    "move_id": 104
+  },
+  {
+    "machine_id": "TM33",
+    "full_move_name": "Reflect",
+    "location": "Power Plant",
+    "move_name": "reflect",
+    "move_id": 115
+  },
+  {
+    "machine_id": "TM34",
+    "full_move_name": "Sludge Wave",
+    "location": "Celadon Sewers",
+    "move_name": "sludge-wave",
+    "move_id": 482
+  },
+  {
+    "machine_id": "TM35",
+    "full_move_name": "Flamethrower",
+    "location": "Game Corner",
+    "move_name": "flamethrower",
+    "move_id": 53
+  },
+  {
+    "machine_id": "TM36",
+    "full_move_name": "Sludge Bomb",
+    "location": "Route 15",
+    "move_name": "sludge-bomb",
+    "move_id": 188
+  },
+  {
+    "machine_id": "TM37",
+    "full_move_name": "Sandstorm",
+    "location": "Mt. Moon (Route 4 Entrance)",
+    "move_name": "sandstorm",
+    "move_id": 201
+  },
+  {
+    "machine_id": "TM38",
+    "full_move_name": "Fire Blast",
+    "location": "Cinnabar Island (Gym)",
+    "move_name": "fire-blast",
+    "move_id": 126
+  },
+  {
+    "machine_id": "TM39",
+    "full_move_name": "Rock Tomb",
+    "location": "Pewter City (Gym)",
+    "move_name": "rock-tomb",
+    "move_id": 317
+  },
+  {
+    "machine_id": "TM40",
+    "full_move_name": "Aerial Ace",
+    "location": "Cerulean City (Bike Race)",
+    "move_name": "aerial-ace",
+    "move_id": 332
+  },
+  {
+    "machine_id": "TM41",
+    "full_move_name": "Torment",
+    "location": "Lavender Town",
+    "move_name": "torment",
+    "move_id": 259
+  },
+  {
+    "machine_id": "TM42",
+    "full_move_name": "Facade",
+    "location": "(Only available in randomized mode)",
+    "move_name": "facade",
+    "move_id": 263
+  },
+  {
+    "machine_id": "TM43",
+    "full_move_name": "Flame Charge",
+    "location": "Route 25",
+    "move_name": "flame-charge",
+    "move_id": 488
+  },
+  {
+    "machine_id": "TM44",
+    "full_move_name": "Rest",
+    "location": "Route 13 (Surf)",
+    "move_name": "rest",
+    "move_id": 156
+  },
+  {
+    "machine_id": "TM45",
+    "full_move_name": "Attract",
+    "location": "Celadon Mall",
+    "move_name": "attract",
+    "move_id": 213
+  },
+  {
+    "machine_id": "TM46",
+    "full_move_name": "Thief",
+    "location": "Mt. Moon",
+    "move_name": "thief",
+    "move_id": 168
+  },
+  {
+    "machine_id": "TM47",
+    "full_move_name": "Low Sweep",
+    "location": "Rock Tunnel",
+    "move_name": "low-sweep",
+    "move_id": 490
+  },
+  {
+    "machine_id": "TM48",
+    "full_move_name": "Round",
+    "location": "(Only available in randomized mode)",
+    "move_name": "round",
+    "move_id": 496
+  },
+  {
+    "machine_id": "TM49",
+    "full_move_name": "Echoed Voice",
+    "location": "Route 7",
+    "move_name": "echoed-voice",
+    "move_id": 497
+  },
+  {
+    "machine_id": "TM50",
+    "full_move_name": "Overheat",
+    "location": "Kindle Road",
+    "move_name": "overheat",
+    "move_id": 315
+  },
+  {
+    "machine_id": "TM51",
+    "full_move_name": "Ally Switch",
+    "location": "Route 9",
+    "move_name": "ally-switch",
+    "move_id": 502
+  },
+  {
+    "machine_id": "TM52",
+    "full_move_name": "Focus Blast",
+    "location": "Victory Road",
+    "move_name": "focus-blast",
+    "move_id": 411
+  },
+  {
+    "machine_id": "TM53",
+    "full_move_name": "Energy Ball",
+    "location": "Route 18",
+    "move_name": "energy-ball",
+    "move_id": 412
+  },
+  {
+    "machine_id": "TM54",
+    "full_move_name": "False Swipe",
+    "location": "Route 6",
+    "move_name": "false-swipe",
+    "move_id": 206
+  },
+  {
+    "machine_id": "TM55",
+    "full_move_name": "Water Pulse",
+    "location": "Cerulean City (Gym)",
+    "move_name": "water-pulse",
+    "move_id": 352
+  },
+  {
+    "machine_id": "TM56",
+    "full_move_name": "Fling",
+    "location": "(Only available in randomized mode)",
+    "move_name": "fling",
+    "move_id": 374
+  },
+  {
+    "machine_id": "TM57",
+    "full_move_name": "Charge Beam",
+    "location": "Power Plant",
+    "move_name": "charge-beam",
+    "move_id": 451
+  },
+  {
+    "machine_id": "TM58",
+    "full_move_name": "Sky Drop",
+    "location": "Mt. Moon Summit",
+    "move_name": "sky-drop",
+    "move_id": 507
+  },
+  {
+    "machine_id": "TM59",
+    "full_move_name": "Incinerate",
+    "location": "(Only available in randomized mode)",
+    "move_name": "incinerate",
+    "move_id": 510
+  },
+  {
+    "machine_id": "TM60",
+    "full_move_name": "Quash",
+    "location": "Safari Zone Area 1",
+    "move_name": "quash",
+    "move_id": 511
+  },
+  {
+    "machine_id": "TM61",
+    "full_move_name": "Will-O-Wisp",
+    "location": "Pokémon Tower (Lavender)",
+    "move_name": "will-o-wisp",
+    "move_id": 261
+  },
+  {
+    "machine_id": "TM62",
+    "full_move_name": "Acrobatics",
+    "location": "Safari Zone Area 3",
+    "move_name": "acrobatics",
+    "move_id": 512
+  },
+  {
+    "machine_id": "TM63",
+    "full_move_name": "Embargo",
+    "location": "Saffron City",
+    "move_name": "embargo",
+    "move_id": 373
+  },
+  {
+    "machine_id": "TM64",
+    "full_move_name": "Explosion",
+    "location": "Pokémon Mansion (Cinnabar)",
+    "move_name": "explosion",
+    "move_id": 153
+  },
+  {
+    "machine_id": "TM65",
+    "full_move_name": "Shadow Claw",
+    "location": "Safari Zone Area 5 Temple",
+    "move_name": "shadow-claw",
+    "move_id": 421
+  },
+  {
+    "machine_id": "TM66",
+    "full_move_name": "Payback",
+    "location": "(Only available in randomized mode)",
+    "move_name": "payback",
+    "move_id": 371
+  },
+  {
+    "machine_id": "TM67",
+    "full_move_name": "Retaliate",
+    "location": "Union Cave (Surf)",
+    "move_name": "retaliate",
+    "move_id": 514
+  },
+  {
+    "machine_id": "TM68",
+    "full_move_name": "Giga Impact",
+    "location": "Celadon Sewers (Surf)",
+    "move_name": "giga-impact",
+    "move_id": 416
+  },
+  {
+    "machine_id": "TM69",
+    "full_move_name": "Rock Polish",
+    "location": "(Only available in randomized mode)",
+    "move_name": "rock-polish",
+    "move_id": 397
+  },
+  {
+    "machine_id": "TM70",
+    "full_move_name": "Roost",
+    "location": "Cycling Road",
+    "move_name": "roost",
+    "move_id": 355
+  },
+  {
+    "machine_id": "TM71",
+    "full_move_name": "Stone Edge",
+    "location": "(Only available in randomized mode)",
+    "move_name": "stone-edge",
+    "move_id": 444
+  },
+  {
+    "machine_id": "TM72",
+    "full_move_name": "Volt Switch",
+    "location": "(Only available in randomized mode)",
+    "move_name": "volt-switch",
+    "move_id": 521
+  },
+  {
+    "machine_id": "TM73",
+    "full_move_name": "Thunder Wave",
+    "location": "Vermillion City (Gym)",
+    "move_name": "thunder-wave",
+    "move_id": 86
+  },
+  {
+    "machine_id": "TM74",
+    "full_move_name": "Gyro Ball",
+    "location": "Victory Road",
+    "move_name": "gyro-ball",
+    "move_id": 360
+  },
+  {
+    "machine_id": "TM75",
+    "full_move_name": "Swords Dance",
+    "location": "Victory Road",
+    "move_name": "swords-dance",
+    "move_id": 14
+  },
+  {
+    "machine_id": "TM76",
+    "full_move_name": "Struggle Bug",
+    "location": "National Park",
+    "move_name": "struggle-bug",
+    "move_id": 522
+  },
+  {
+    "machine_id": "TM77",
+    "full_move_name": "Psych Up",
+    "location": "(Only available in randomized mode)",
+    "move_name": "psych-up",
+    "move_id": 244
+  },
+  {
+    "machine_id": "TM78",
+    "full_move_name": "Bulldoze",
+    "location": "Cycling Road (NPC)",
+    "move_name": "bulldoze",
+    "move_id": 523
+  },
+  {
+    "machine_id": "TM79",
+    "full_move_name": "Frost Breath",
+    "location": "Mahogany Gym",
+    "move_name": "frost-breath",
+    "move_id": 524
+  },
+  {
+    "machine_id": "TM80",
+    "full_move_name": "Rock Throw",
+    "location": "(Only available in randomized mode)",
+    "move_name": "rock-throw",
+    "move_id": 88
+  },
+  {
+    "machine_id": "TM81",
+    "full_move_name": "X-Scissor",
+    "location": "Celadon City",
+    "move_name": "x-scissor",
+    "move_id": 404
+  },
+  {
+    "machine_id": "TM82",
+    "full_move_name": "Dragon Tail",
+    "location": "Victory Road",
+    "move_name": "dragon-tail",
+    "move_id": 525
+  },
+  {
+    "machine_id": "TM83",
+    "full_move_name": "Work Up",
+    "location": "Route 36",
+    "move_name": "work-up",
+    "move_id": 526
+  },
+  {
+    "machine_id": "TM84",
+    "full_move_name": "Poison Jab",
+    "location": "Rock Tunnel",
+    "move_name": "poison-jab",
+    "move_id": 398
+  },
+  {
+    "machine_id": "TM85",
+    "full_move_name": "Dream Eater",
+    "location": "Berry Forest",
+    "move_name": "dream-eater",
+    "move_id": 138
+  },
+  {
+    "machine_id": "TM86",
+    "full_move_name": "Grass Knot",
+    "location": "Kindle Road (Dive)",
+    "move_name": "grass-knot",
+    "move_id": 447
+  },
+  {
+    "machine_id": "TM87",
+    "full_move_name": "Swagger",
+    "location": "Name Rater",
+    "move_name": "swagger",
+    "move_id": 207
+  },
+  {
+    "machine_id": "TM88",
+    "full_move_name": "Sleep Talk",
+    "location": "Route 35",
+    "move_name": "sleep-talk",
+    "move_id": 214
+  },
+  {
+    "machine_id": "TM89",
+    "full_move_name": "U-turn",
+    "location": "Bond Bridge",
+    "move_name": "u-turn",
+    "move_id": 369
+  },
+  {
+    "machine_id": "TM90",
+    "full_move_name": "Substitute",
+    "location": "Celadon City (Surf), Victory Road",
+    "move_name": "substitute",
+    "move_id": 164
+  },
+  {
+    "machine_id": "TM91",
+    "full_move_name": "Flash Cannon",
+    "location": "Route 23",
+    "move_name": "flash-cannon",
+    "move_id": 430
+  },
+  {
+    "machine_id": "TM92",
+    "full_move_name": "Trick Room",
+    "location": "Silph Co. (5F)",
+    "move_name": "trick-room",
+    "move_id": 433
+  },
+  {
+    "machine_id": "TM93",
+    "full_move_name": "Wild Charge",
+    "location": "Route 10 (Surf)",
+    "move_name": "wild-charge",
+    "move_id": 528
+  },
+  {
+    "machine_id": "TM94",
+    "full_move_name": "Rock Smash",
+    "location": "Mt. Moon (NPC)",
+    "move_name": "rock-smash",
+    "move_id": 249
+  },
+  {
+    "machine_id": "TM95",
+    "full_move_name": "Snarl",
+    "location": "Route 9",
+    "move_name": "snarl",
+    "move_id": 555
+  },
+  {
+    "machine_id": "TM96",
+    "full_move_name": "Moonblast",
+    "location": "Mt. Moon Summit",
+    "move_name": "moonblast",
+    "move_id": 585
+  },
+  {
+    "machine_id": "TM97",
+    "full_move_name": "Nasty Plot",
+    "location": "Ecruteak City (Gym)",
+    "move_name": "nasty-plot",
+    "move_id": 417
+  },
+  {
+    "machine_id": "TM98",
+    "full_move_name": "Baton Pass",
+    "location": "Goldenrod City (Gym)",
+    "move_name": "baton-pass",
+    "move_id": 226
+  },
+  {
+    "machine_id": "TM99",
+    "full_move_name": "Quiver Dance",
+    "location": "Azalea Town (Gym)",
+    "move_name": "quiver-dance",
+    "move_id": 483
+  },
+  {
+    "machine_id": "TM100",
+    "full_move_name": "Defog",
+    "location": "Violet City (Gym)",
+    "move_name": "defog",
+    "move_id": 432
+  },
+  {
+    "machine_id": "TM101",
+    "full_move_name": "Dragon Dance",
+    "location": "Blackthorn City (Gym)",
+    "move_name": "dragon-dance",
+    "move_id": 349
+  },
+  {
+    "machine_id": "TM102",
+    "full_move_name": "Spore",
+    "location": "(Only available in randomized mode)",
+    "move_name": "spore",
+    "move_id": 147
+  },
+  {
+    "machine_id": "TM103",
+    "full_move_name": "Toxic Spikes",
+    "location": "(Only available in randomized mode)",
+    "move_name": "toxic-spikes",
+    "move_id": 390
+  },
+  {
+    "machine_id": "TM104",
+    "full_move_name": "Recover",
+    "location": "Cinnabar Island (Quest reward for bringing back the relic vase)",
+    "move_name": "recover",
+    "move_id": 105
+  },
+  {
+    "machine_id": "TM105",
+    "full_move_name": "Aqua Jet",
+    "location": "Route 23",
+    "move_name": "aqua-jet",
+    "move_id": 453
+  },
+  {
+    "machine_id": "TM106",
+    "full_move_name": "Draining Kiss",
+    "location": "Mt. Moon",
+    "move_name": "draining-kiss",
+    "move_id": 577
+  },
+  {
+    "machine_id": "TM107",
+    "full_move_name": "Play Rough",
+    "location": "Silph Co. (4F)",
+    "move_name": "play-rough",
+    "move_id": 583
+  },
+  {
+    "machine_id": "TM108",
+    "full_move_name": "Sky Attack",
+    "location": "Sky Pillar",
+    "move_name": "sky-attack",
+    "move_id": 143
+  },
+  {
+    "machine_id": "TM109",
+    "full_move_name": "Brutal Swing",
+    "location": "Battle Factory/Tower",
+    "move_name": "brutal-swing",
+    "move_id": 693
+  },
+  {
+    "machine_id": "TM110",
+    "full_move_name": "Aurora Veil",
+    "location": "Battle Factory/Tower",
+    "move_name": "aurora-veil",
+    "move_id": 694
+  },
+  {
+    "machine_id": "TM111",
+    "full_move_name": "Dazzling Gleam",
+    "location": "(Only available in randomized mode)",
+    "move_name": "dazzling-gleam",
+    "move_id": 605
+  },
+  {
+    "machine_id": "TM112",
+    "full_move_name": "Focus Punch",
+    "location": "Battle Factory/Tower",
+    "move_name": "focus-punch",
+    "move_id": 264
+  },
+  {
+    "machine_id": "TM113",
+    "full_move_name": "Infestation",
+    "location": "Battle Factory/Tower",
+    "move_name": "infestation",
+    "move_id": 611
+  },
+  {
+    "machine_id": "TM114",
+    "full_move_name": "Leech Life",
+    "location": "Kin Island",
+    "move_name": "leech-life",
+    "move_id": 141
+  },
+  {
+    "machine_id": "TM115",
+    "full_move_name": "Power-Up Punch",
+    "location": "(Only available in randomized mode)",
+    "move_name": "power-up-punch",
+    "move_id": 612
+  },
+  {
+    "machine_id": "TM116",
+    "full_move_name": "Shock Wave",
+    "location": "(Only available in randomized mode)",
+    "move_name": "shock-wave",
+    "move_id": 351
+  },
+  {
+    "machine_id": "TM117",
+    "full_move_name": "Smart Strike",
+    "location": "Battle Factory/Tower",
+    "move_name": "smart-strike",
+    "move_id": 684
+  },
+  {
+    "machine_id": "TM118",
+    "full_move_name": "Steel Wing",
+    "location": "(Only available in randomized mode)",
+    "move_name": "steel-wing",
+    "move_id": 211
+  },
+  {
+    "machine_id": "TM119",
+    "full_move_name": "Stomping Tantrum",
+    "location": "Battle Factory/Tower",
+    "move_name": "stomping-tantrum",
+    "move_id": 707
+  },
+  {
+    "machine_id": "TM120",
+    "full_move_name": "Throat Chop",
+    "location": "Battle Factory/Tower",
+    "move_name": "throat-chop",
+    "move_id": 675
+  },
+  {
+    "machine_id": "TM121",
+    "full_move_name": "Scald",
+    "location": "Ember Spa",
+    "move_name": "scald",
+    "move_id": 503
+  },
+  {
+    "machine_id": "HM01",
+    "full_move_name": "Cut",
+    "location": "S.S. Anne (After helping the ship's captain)",
+    "move_name": "cut",
+    "move_id": 15
+  },
+  {
+    "machine_id": "HM02",
+    "full_move_name": "Fly",
+    "location": "Route 16",
+    "move_name": "fly",
+    "move_id": 19
+  },
+  {
+    "machine_id": "HM03",
+    "full_move_name": "Surf",
+    "location": "Safari Zone Area 4 (Secret House)",
+    "move_name": "surf",
+    "move_id": 57
+  },
+  {
+    "machine_id": "HM04",
+    "full_move_name": "Strength",
+    "location": "Fuchsia City (Janine, after waking Snorlax on Route 12)",
+    "move_name": "strength",
+    "move_id": 70
+  },
+  {
+    "machine_id": "HM05",
+    "full_move_name": "Waterfall",
+    "location": "New Bark Town (Prof. Elm, need 2 Johto badges)",
+    "move_name": "waterfall",
+    "move_id": 127
+  },
+  {
+    "machine_id": "HM06",
+    "full_move_name": "Dive",
+    "location": "Azalea Town",
+    "move_name": "dive",
+    "move_id": 291
+  },
+  {
+    "machine_id": "HM07",
+    "full_move_name": "Teleport",
+    "location": "Vermillion City (after gym)",
+    "move_name": "teleport",
+    "move_id": 100
+  },
+  {
+    "machine_id": "HM08",
+    "full_move_name": "Flash",
+    "location": "Hotel (from Questman after completing 1 quest)",
+    "move_name": "flash",
+    "move_id": 148
+  },
+  {
+    "machine_id": "HM10",
+    "full_move_name": "Rock Climb",
+    "location": "Mt. Silver (after getting all 16 badges)",
+    "move_name": "rock-climb",
+    "move_id": 431
+  }
+]
