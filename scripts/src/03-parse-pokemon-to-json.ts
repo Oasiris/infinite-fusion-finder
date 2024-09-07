@@ -25,7 +25,7 @@ const gen2To7VersionGroupNames = versionGroups
 
 const API_POKEMON_DIR = path.resolve(__dirname, '../out/api-pokemon')
 const OUT_POKEMON_DIR = path.resolve(__dirname, '../out/pokemon')
-// const OUT_POKEMON_INDEX_PATH = path.resolve(__dirname, '../out/pokemon-index.json')
+const OUT_POKEMON_INDEX_PATH = path.resolve(__dirname, '../out/pokemon-index.json')
 
 async function readAPIPokemonEntries(): Promise<any[]> {
     let apiEntries = []
@@ -191,124 +191,18 @@ async function main() {
     }
 
     console.log('Parsing', apiEntries.length, 'pokemon entries...')
+    let allPokemonData = []
     for (const data of apiEntries) {
         let pokemon = await buildPokemonEntryV1(data)
         pokemon = await postProcessPokemonEntryV1(pokemon)
 
         const outPath = path.resolve(OUT_POKEMON_DIR, `${pokemon.ifDex}.json`)
         await fs.writeFile(outPath, JSON.stringify(pokemon, null, 4))
+
+        allPokemonData.push(pokemon)
     }
+    // Write Pokemon index
+    await fs.writeFile(OUT_POKEMON_INDEX_PATH, JSON.stringify(allPokemonData))
 }
 
 main()
-
-// let bulbasaur: Partial<PokemonV1> = { version: 1, type: 'pokemon' }
-// bulbasaur.nationalDex = pokemon01.id
-// bulbasaur.ifDex = natDexToIFDex[pokemon01.id]
-// assert(bulbasaur.ifDex !== undefined)
-
-// bulbasaur.types = pokemon01.types.map((type: { slot: number; type: { name: string } }) => ({
-//     slot: type.slot,
-//     type: type.type.name,
-// }))
-
-// bulbasaur.stats = {
-//     hp: pokemon01.stats[0].base_stat,
-//     attack: pokemon01.stats[1].base_stat,
-//     defense: pokemon01.stats[2].base_stat,
-//     specialAttack: pokemon01.stats[3].base_stat,
-//     specialDefense: pokemon01.stats[4].base_stat,
-//     speed: pokemon01.stats[5].base_stat,
-// }
-
-// bulbasaur.abilities_normal = pokemon01.abilities
-//     .filter((ability: { is_hidden: boolean }) => !ability.is_hidden)
-//     .map((ability: { ability: { name: string }; slot: number }) => ({
-//         slot: ability.slot,
-//         ability: ability.ability.name,
-//     }))
-
-// bulbasaur.abilities_hidden = pokemon01.abilities
-//     .filter((ability: { is_hidden: boolean }) => ability.is_hidden)
-//     .map((ability: { ability: { name: string } }) => ({
-//         slot: 'hidden',
-//         ability: ability.ability.name,
-//     }))
-
-// // Level-up moves from USUM
-// bulbasaur.moves = { levelup: [], machine: [], tutor: [], egg: [] }
-// bulbasaur.moves.levelup = pokemon01.moves
-//     .filter((move) =>
-//         move.version_group_details.some(
-//             (versionGroupDetail) =>
-//                 versionGroupDetail.version_group.name === 'ultra-sun-ultra-moon' &&
-//                 versionGroupDetail.move_learn_method.name === 'level-up',
-//         ),
-//     )
-//     .map((move) => ({
-//         name: move.move.name,
-//         learn_method: 'levelup',
-//         level: move.version_group_details.find(
-//             (versionGroupDetail) =>
-//                 versionGroupDetail.version_group.name === 'ultra-sun-ultra-moon',
-//         )?.level_learned_at,
-//     }))
-// // Sort level-up moves by level
-// bulbasaur.moves.levelup.sort((a, b) => {
-//     if (a.level === b.level) {
-//         return a.name.localeCompare(b.name)
-//     }
-//     return a.level - b.level
-// })
-
-// // Assume moves that could be learned by any method in any generation (until USUM) are valid machine moves
-
-// // NOTE: This assumption is not always correct. For example, Bulbasaur could learn Reflect in Gen 1 by TM, but not since
-// // then, so Bulbasaur cannot learn Reflect via TM in PIF.
-// // On the other hand, Hone Claws was a TM in Gen 5/6 but not in Gen 7, but Charmander _can_ learn Hone Claws via machine in PIF.
-// // As a simple heuristic, just ignore gen 1 for now.
-
-// bulbasaur.moves.machine = pokemon01.moves
-//     .filter((move) => machineMoves.some((m) => m.move_name === move.move.name))
-//     .filter((move) =>
-//         move.version_group_details.some((d) =>
-//             gen2To7VersionGroupNames.includes(d.version_group.name),
-//         ),
-//     )
-//     .map((move) => ({
-//         name: move.move.name,
-//         learn_method: 'machine',
-//         tm_id: machineMoves.find((m) => m.move_name === move.move.name)?.tm_id,
-//     }))
-// bulbasaur.moves.machine.sort(byTMID)
-
-// // Assume same for tutor moves
-// bulbasaur.moves.tutor = pokemon01.moves
-//     .filter((move) => tutorMoveNames.includes(move.move.name))
-//     .filter((move) =>
-//         move.version_group_details.some((d) =>
-//             gen2To7VersionGroupNames.includes(d.version_group.name),
-//         ),
-//     )
-//     .map((move) => ({
-//         name: move.move.name,
-//         learn_method: 'tutor',
-//     }))
-// bulbasaur.moves.tutor.sort(inAscendingOrderByName)
-
-// // Copy USUM egg moves
-// bulbasaur.moves.egg = pokemon01.moves
-//     .filter((move) =>
-//         move.version_group_details.some(
-//             (versionGroupDetail) =>
-//                 versionGroupDetail.version_group.name === 'ultra-sun-ultra-moon' &&
-//                 versionGroupDetail.move_learn_method.name === 'egg',
-//         ),
-//     )
-//     .map((move) => ({
-//         name: move.move.name,
-//         learn_method: 'egg',
-//     }))
-// bulbasaur.moves.egg.sort(inAscendingOrderByName)
-
-// console.log(JSON.stringify(bulbasaur, null, 4))

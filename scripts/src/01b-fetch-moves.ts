@@ -1,7 +1,8 @@
-import * as fs from 'node:fs'
-import * as path from 'node:path'
+import fs from 'node:fs'
+import path from 'node:path'
 import assert from 'node:assert'
 
+// @ts-expect-error moduleResolution:nodenext issue 52529
 import { globby } from 'globby'
 
 import { prompt } from './util'
@@ -80,6 +81,12 @@ async function main() {
     if (!fs.existsSync(OUT_MOVE_DIR)) {
         fs.mkdirSync(OUT_MOVE_DIR, { recursive: true })
     }
+    // Stop early if OUT_MOVE_DIR already has 937 JSON entries
+    let jsonFiles = await globby(`${OUT_MOVE_DIR}/*.json`)
+    if (jsonFiles.length >= 937) {
+        console.log('Move data already fetched. Exiting early.')
+        return
+    }
 
     console.log('Fetching moves...')
     await prompt('Press Enter to proceed fetching moves: ')
@@ -89,9 +96,9 @@ async function main() {
 
     // Generate moveNameToID mapping
     const moveNameToID: Record<string, { id: number; full_name: string }> = {}
-    const files = await globby(`${OUT_MOVE_DIR}/*.json`)
-    files.sort(inAscendingNaturalOrder)
-    for (const file of files) {
+    jsonFiles = await globby(`${OUT_MOVE_DIR}/*.json`)
+    jsonFiles.sort(inAscendingNaturalOrder)
+    for (const file of jsonFiles) {
         const moveData = JSON.parse(fs.readFileSync(file, 'utf-8'))
         let moveFullName = moveData.names.find((m: any) => m.language.name === 'en')?.name
         if (!moveFullName) {
