@@ -1,6 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs'
-import { awaitPrompt, sleep } from './util'
+import { prompt, sleep } from './util'
 
 const IN_EXTRA_POKEMON = path.resolve(__dirname, '../in/extra_pokemon.txt')
 const OUT_POKEMON_SPECIES_DIR = path.resolve(__dirname, '../out/api-pokemon-species')
@@ -29,7 +29,7 @@ async function main(): Promise<void> {
 
     console.log(pokedexNums.join(', '))
     console.log('Total entries:', pokedexNums.length)
-    await awaitPrompt('Press Enter to fetch the first pokemon entry, ' + pokedexNums[0] + ':')
+    await prompt('Press Enter to proceed fetching ' + pokedexNums.length + ' entries: ')
 
     // Fetch pokemon entries
     for (let idx in pokedexNums) {

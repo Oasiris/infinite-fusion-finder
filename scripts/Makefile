@@ -30,3 +30,13 @@ map-natdex-to-if-dex: ## Create map from NatDex to Infinite Fusion Dex
 .PHONY: parse-pokemon-to-json
 parse-pokemon-to-json: ## Parse from PokeAPI/NatDex to Infinite Fusion app-ready JSON
 	npx tsx src/03-parse-pokemon-to-json.ts
+
+
+.PHONY: parse-tutor-moves-to-json
+parse-tutor-moves-to-json:
+	npx tsx src/a-parse-tutor-moves-to-json.ts
+
+
+.PHONY: fetch-moves
+fetch-moves:
+	npx tsx src/b-fetch-moves.ts

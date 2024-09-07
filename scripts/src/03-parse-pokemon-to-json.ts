@@ -83,6 +83,10 @@ type MoveV1 = {
 import pokemon01 from '../out/api-pokemon/1.json'
 import pokemonSpecies01 from '../out/api-pokemon-species/1.json'
 import natDexToIFDex from '../out/natdex-to-ifdex.json'
+import versionGroups from '../in/version-groups.json'
+import tutorMoves from '../out/infinite-fusion-tutors.json'
+
+const gen1To7VersionGroupNames = versionGroups.filter((g) => g.generation <= 7).map((g) => g.name)
 
 // const pokemon01Text = await fs.readFile(BULBASAUR_POKEMON_DIR, 'utf-8')
 // const pokemon01 = JSON.parse(pokemon01Text)
@@ -149,5 +153,31 @@ bulbasaur.moves.levelup.sort((a, b) => {
     }
     return a.level - b.level
 })
+
+// Do the same for machine, tutor, and egg moves
+bulbasaur.moves.machine = pokemon01.moves
+    .filter((move) =>
+        move.version_group_details.some(
+            (versionGroupDetail) =>
+                versionGroupDetail.version_group.name === 'ultra-sun-ultra-moon' &&
+                versionGroupDetail.move_learn_method.name === 'machine',
+        ),
+    )
+    .map((move) => ({
+        name: move.move.name,
+        learn_method: 'machine',
+    }))
+
+// If it could be learned by any method in any game up until USUM, it can be learned via tutor here.
+bulbasaur.moves.tutor = pokemon01.moves
+    .filter((move) =>
+        move.version_group_details.some((d) =>
+            gen1To7VersionGroupNames.includes(d.version_group.name),
+        ),
+    )
+    .map((move) => ({
+        name: move.move.name,
+        learn_method: 'tutor',
+    }))
 
 console.log(JSON.stringify(bulbasaur, null, 4))

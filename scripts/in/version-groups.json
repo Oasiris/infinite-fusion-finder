@@ -1,0 +1,137 @@
+[
+  {
+    "name": "red-blue",
+    "url": "https://pokeapi.co/api/v2/version-group/1/",
+    "generation": 1
+  },
+  {
+    "name": "yellow",
+    "url": "https://pokeapi.co/api/v2/version-group/2/",
+    "generation": 1
+  },
+  {
+    "name": "gold-silver",
+    "url": "https://pokeapi.co/api/v2/version-group/3/",
+    "generation": 2
+  },
+  {
+    "name": "crystal",
+    "url": "https://pokeapi.co/api/v2/version-group/4/",
+    "generation": 2
+  },
+  {
+    "name": "ruby-sapphire",
+    "url": "https://pokeapi.co/api/v2/version-group/5/",
+    "generation": 3
+  },
+  {
+    "name": "emerald",
+    "url": "https://pokeapi.co/api/v2/version-group/6/",
+    "generation": 3
+  },
+  {
+    "name": "firered-leafgreen",
+    "url": "https://pokeapi.co/api/v2/version-group/7/",
+    "generation": 3
+  },
+  {
+    "name": "diamond-pearl",
+    "url": "https://pokeapi.co/api/v2/version-group/8/",
+    "generation": 4
+  },
+  {
+    "name": "platinum",
+    "url": "https://pokeapi.co/api/v2/version-group/9/",
+    "generation": 4
+  },
+  {
+    "name": "heartgold-soulsilver",
+    "url": "https://pokeapi.co/api/v2/version-group/10/",
+    "generation": 5
+  },
+  {
+    "name": "black-white",
+    "url": "https://pokeapi.co/api/v2/version-group/11/",
+    "generation": 5
+  },
+  {
+    "name": "colosseum",
+    "url": "https://pokeapi.co/api/v2/version-group/12/",
+    "generation": 3
+  },
+  {
+    "name": "xd",
+    "url": "https://pokeapi.co/api/v2/version-group/13/",
+    "generation": 3
+  },
+  {
+    "name": "black-2-white-2",
+    "url": "https://pokeapi.co/api/v2/version-group/14/",
+    "generation": 5
+  },
+  {
+    "name": "x-y",
+    "url": "https://pokeapi.co/api/v2/version-group/15/",
+    "generation": 6
+  },
+  {
+    "name": "omega-ruby-alpha-sapphire",
+    "url": "https://pokeapi.co/api/v2/version-group/16/",
+    "generation": 6
+  },
+  {
+    "name": "sun-moon",
+    "url": "https://pokeapi.co/api/v2/version-group/17/",
+    "generation": 7
+  },
+  {
+    "name": "ultra-sun-ultra-moon",
+    "url": "https://pokeapi.co/api/v2/version-group/18/",
+    "generation": 7
+  },
+  {
+    "name": "lets-go-pikachu-lets-go-eevee",
+    "url": "https://pokeapi.co/api/v2/version-group/19/",
+    "generation": 7.5
+  },
+  {
+    "name": "sword-shield",
+    "url": "https://pokeapi.co/api/v2/version-group/20/",
+    "generation": 8
+  },
+  {
+    "name": "the-isle-of-armor",
+    "url": "https://pokeapi.co/api/v2/version-group/21/",
+    "generation": 8
+  },
+  {
+    "name": "the-crown-tundra",
+    "url": "https://pokeapi.co/api/v2/version-group/22/",
+    "generation": 8
+  },
+  {
+    "name": "brilliant-diamond-and-shining-pearl",
+    "url": "https://pokeapi.co/api/v2/version-group/23/",
+    "generation": 8
+  },
+  {
+    "name": "legends-arceus",
+    "url": "https://pokeapi.co/api/v2/version-group/24/",
+    "generation": 8
+  },
+  {
+    "name": "scarlet-violet",
+    "url": "https://pokeapi.co/api/v2/version-group/25/",
+    "generation": 9
+  },
+  {
+    "name": "the-teal-mask",
+    "url": "https://pokeapi.co/api/v2/version-group/26/",
+    "generation": 9
+  },
+  {
+    "name": "the-indigo-disk",
+    "url": "https://pokeapi.co/api/v2/version-group/27/",
+    "generation": 9
+  }
+]

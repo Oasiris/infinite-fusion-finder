@@ -1,3 +1,4 @@
 # Hide certain outputs that take up too much space
 out/api-pokemon/**.json
 out/api-pokemon-species/**.json
+out/api-move/**.json
