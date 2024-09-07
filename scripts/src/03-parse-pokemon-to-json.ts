@@ -2,6 +2,10 @@ import path from 'node:path'
 import fs from 'node:fs/promises'
 import assert from 'node:assert'
 
+import { ascend } from 'ramda'
+
+const inAscendingOrderByName = ascend((obj: { name: string }) => obj.name)
+
 // In V1 let's just ignore different forms
 type PokemonV1 = {
     version: 1 | number
@@ -86,6 +90,8 @@ import natDexToIFDex from '../out/natdex-to-ifdex.json'
 import versionGroups from '../in/version-groups.json'
 import tutorMoves from '../out/infinite-fusion-tutors.json'
 
+const tutorMoveNames = tutorMoves.map((move) => move.move_name)
+
 const gen1To7VersionGroupNames = versionGroups.filter((g) => g.generation <= 7).map((g) => g.name)
 
 // const pokemon01Text = await fs.readFile(BULBASAUR_POKEMON_DIR, 'utf-8')
@@ -168,8 +174,9 @@ bulbasaur.moves.machine = pokemon01.moves
         learn_method: 'machine',
     }))
 
-// If it could be learned by any method in any game up until USUM, it can be learned via tutor here.
+// Assume moves that could be learned by any method in any generation (until USUM) are valid tutor moves
 bulbasaur.moves.tutor = pokemon01.moves
+    .filter((move) => tutorMoveNames.includes(move.move.name))
     .filter((move) =>
         move.version_group_details.some((d) =>
             gen1To7VersionGroupNames.includes(d.version_group.name),
@@ -179,5 +186,21 @@ bulbasaur.moves.tutor = pokemon01.moves
         name: move.move.name,
         learn_method: 'tutor',
     }))
+bulbasaur.moves.tutor.sort(inAscendingOrderByName)
+
+// Take egg moves from USUM
+bulbasaur.moves.egg = pokemon01.moves
+    .filter((move) =>
+        move.version_group_details.some(
+            (versionGroupDetail) =>
+                versionGroupDetail.version_group.name === 'ultra-sun-ultra-moon' &&
+                versionGroupDetail.move_learn_method.name === 'egg',
+        ),
+    )
+    .map((move) => ({
+        name: move.move.name,
+        learn_method: 'egg',
+    }))
+bulbasaur.moves.egg.sort(inAscendingOrderByName)
 
 console.log(JSON.stringify(bulbasaur, null, 4))
