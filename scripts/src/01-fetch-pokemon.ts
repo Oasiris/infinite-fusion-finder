@@ -3,7 +3,8 @@ import fs from 'node:fs'
 import { prompt, sleep } from './util'
 
 const IN_EXTRA_POKEMON = path.resolve(__dirname, '../in/extra_pokemon.txt')
-const OUT_POKEMON_SPECIES_DIR = path.resolve(__dirname, '../out/api-pokemon-species')
+const OUT_POKEMON_DIR = path.resolve(__dirname, '../out/api-pokemon')
+// const OUT_POKEMON_SPECIES_DIR = path.resolve(__dirname, '../out/api-pokemon-species')
 
 const POKEAPI_URL = 'https://pokeapi.co/api/v2'
 
@@ -34,13 +35,14 @@ async function main(): Promise<void> {
     // Fetch pokemon entries
     for (let idx in pokedexNums) {
         const idOrName = pokedexNums[idx]
-        const filename = path.join(OUT_POKEMON_SPECIES_DIR, `${idOrName}.json`)
+        const filename = path.join(OUT_POKEMON_DIR, `${idOrName}.json`)
         if (fs.existsSync(filename)) {
             console.log(`File ${filename} already exists. Skipping fetch.`)
             continue
         }
         // Fetch
-        const idURL = POKEAPI_URL + `/pokemon-species/${idOrName}`
+        const idURL = POKEAPI_URL + `/pokemon/${idOrName}`
+        // const idURL = POKEAPI_URL + `/pokemon-species/${idOrName}`
         console.log(`(${Number(idx) + 1}/${pokedexNums.length}) Fetching ${idOrName}...`)
         const response = await fetch(idURL)
         const data = await response.json()
