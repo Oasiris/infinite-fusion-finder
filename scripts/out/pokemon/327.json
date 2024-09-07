@@ -22,13 +22,12 @@
         "specialDefense": 37,
         "speed": 28
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "no-guard"
         }
     ],
-    "abilities_hidden": [],
     "moves": {
         "levelup": [
             {

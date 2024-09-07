@@ -22,13 +22,12 @@
         "specialDefense": 70,
         "speed": 51
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "shed-skin"
         }
     ],
-    "abilities_hidden": [],
     "moves": {
         "levelup": [
             {

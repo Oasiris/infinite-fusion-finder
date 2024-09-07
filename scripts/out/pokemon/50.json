@@ -18,7 +18,7 @@
         "specialDefense": 45,
         "speed": 95
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "sand-veil"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "arena-trap"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "sand-force"

@@ -18,7 +18,7 @@
         "specialDefense": 115,
         "speed": 67
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "insomnia"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "forewarn"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "inner-focus"

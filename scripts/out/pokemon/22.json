@@ -22,13 +22,11 @@
         "specialDefense": 61,
         "speed": 100
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "keen-eye"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "sniper"

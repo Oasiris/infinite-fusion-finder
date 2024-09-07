@@ -22,7 +22,7 @@
         "specialDefense": 105,
         "speed": 40
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "hustle"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "serene-grace"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "super-luck"

@@ -22,13 +22,12 @@
         "specialDefense": 30,
         "speed": 40
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "wonder-guard"
         }
     ],
-    "abilities_hidden": [],
     "moves": {
         "levelup": [
             {

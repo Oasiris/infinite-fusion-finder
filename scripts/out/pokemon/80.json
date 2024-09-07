@@ -22,7 +22,7 @@
         "specialDefense": 80,
         "speed": 30
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "oblivious"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "own-tempo"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "regenerator"

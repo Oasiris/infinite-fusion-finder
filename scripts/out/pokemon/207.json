@@ -22,7 +22,7 @@
         "specialDefense": 65,
         "speed": 85
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "hyper-cutter"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "sand-veil"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "immunity"

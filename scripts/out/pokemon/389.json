@@ -18,7 +18,7 @@
         "specialDefense": 49,
         "speed": 60
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "rivalry"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "intimidate"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "guts"

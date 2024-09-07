@@ -23,8 +23,7 @@ export type PokemonV1 = {
         speed: number
     }
 
-    abilities_normal: PokemonAbility[]
-    abilities_hidden: PokemonAbility[]
+    abilities: PokemonAbility[]
 
     moves: {
         levelup: PokemonMove[]
@@ -37,6 +36,8 @@ export type PokemonV1 = {
 export type PokemonAbility = {
     slot: 1 | 2 | 'hidden' | number | string
     ability: string
+    // Only relevant for fused pokemon
+    from?: string
 
     // Can be hydrated with ability data
     abilityV1?: AbilityV1
@@ -45,6 +46,8 @@ export type PokemonAbility = {
 export type PokemonType = {
     slot: 1 | 2 | number
     type: string
+    // Only relevant for fused pokemon
+    from?: string
 
     // Can be hydrated with type data
     typeV1?: TypeV1

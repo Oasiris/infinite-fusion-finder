@@ -22,7 +22,7 @@
         "specialDefense": 60,
         "speed": 71
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "simple"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "unaware"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "moody"

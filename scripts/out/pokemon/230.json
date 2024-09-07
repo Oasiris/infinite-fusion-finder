@@ -22,7 +22,7 @@
         "specialDefense": 95,
         "speed": 85
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "swift-swim"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "sniper"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "damp"

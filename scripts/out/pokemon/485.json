@@ -18,13 +18,11 @@
         "specialDefense": 44,
         "speed": 71
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "torrent"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "protean"

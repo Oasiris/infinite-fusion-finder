@@ -1,6 +1,7 @@
 import React from 'react'
 import POKEMON_DATA from '../data/pokemon-index.json'
 import { FilterOptions, SortOptions, applyFilterAndSort } from '../controllers/searchController'
+import { Switch, Range } from '../components'
 
 type PokemonData = typeof POKEMON_DATA
 
@@ -144,66 +145,6 @@ function SearchControls({
     )
 }
 
-function Switch({
-    children,
-    toggled,
-    onClick,
-    ...props
-}: {
-    children: React.ReactNode
-    toggled: boolean
-    onClick?: React.MouseEventHandler<HTMLButtonElement>
-    [key: string]: any
-}) {
-    return (
-        <button onClick={onClick} {...props}>
-            {children}
-            <span>{toggled ? 'ON' : 'OFF'}</span>
-        </button>
-    )
-}
-
-function Range({
-    children,
-    value,
-    min = 0,
-    max = 255,
-    onChange,
-    ...props
-}: {
-    children: React.ReactNode
-    value: number
-    min?: number
-    max?: number
-    showValue?: boolean
-    onChange?: React.ChangeEventHandler<HTMLInputElement>
-    [key: string]: any
-}) {
-    return (
-        <div>
-            <label>
-                {children}
-                <input
-                    type="number"
-                    value={value}
-                    min={min}
-                    max={max}
-                    onChange={onChange}
-                    {...props}
-                />
-                <input
-                    type="range"
-                    value={value}
-                    min={min}
-                    max={max}
-                    onChange={onChange}
-                    {...props}
-                />
-            </label>
-        </div>
-    )
-}
-
 function TableView({ data }: { data: PokemonData }) {
     return (
         <>
@@ -216,6 +157,13 @@ function TableView({ data }: { data: PokemonData }) {
                         <th>Dex No.</th>
                         <th>Name</th>
                         <th>Types</th>
+                        <th>HP</th>
+                        <th>Atk</th>
+                        <th>Def</th>
+                        <th>Sp.Atk</th>
+                        <th>Sp.Def</th>
+                        <th>Spd</th>
+                        <th>BST</th>
                     </tr>
                     {data.map((pokemon) => (
                         <tr key={pokemon.name}>
@@ -227,6 +175,20 @@ function TableView({ data }: { data: PokemonData }) {
                                         <Type key={type.slot} type={type.type} />
                                     ))}
                                 </div>
+                            </td>
+                            <td>{pokemon.stats.hp}</td>
+                            <td>{pokemon.stats.attack}</td>
+                            <td>{pokemon.stats.defense}</td>
+                            <td>{pokemon.stats.specialAttack}</td>
+                            <td>{pokemon.stats.specialDefense}</td>
+                            <td>{pokemon.stats.speed}</td>
+                            <td>
+                                {pokemon.stats.hp +
+                                    pokemon.stats.attack +
+                                    pokemon.stats.defense +
+                                    pokemon.stats.specialAttack +
+                                    pokemon.stats.specialDefense +
+                                    pokemon.stats.speed}
                             </td>
                         </tr>
                     ))}

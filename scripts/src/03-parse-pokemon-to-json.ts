@@ -77,19 +77,12 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
         speed: data.stats[5].base_stat,
     }
 
-    entry.abilities_normal = data.abilities
-        .filter((ability: { is_hidden: boolean }) => !ability.is_hidden)
-        .map((ability: { ability: { name: string }; slot: number }) => ({
-            slot: ability.slot,
+    entry.abilities = data.abilities.map(
+        (ability: { slot: number; is_hidden: boolean; ability: { name: string } }) => ({
+            slot: ability.is_hidden ? 'hidden' : ability.slot,
             ability: ability.ability.name,
-        }))
-
-    entry.abilities_hidden = data.abilities
-        .filter((ability: { is_hidden: boolean }) => ability.is_hidden)
-        .map((ability: { ability: { name: string } }) => ({
-            slot: 'hidden',
-            ability: ability.ability.name,
-        }))
+        }),
+    )
 
     entry.moves = { levelup: [], machine: [], tutor: [], egg: [] }
     entry.moves.levelup = data.moves

@@ -18,7 +18,7 @@
         "specialDefense": 45,
         "speed": 60
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "water-veil"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "oblivious"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "pressure"

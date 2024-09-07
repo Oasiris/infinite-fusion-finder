@@ -18,7 +18,7 @@
         "specialDefense": 35,
         "speed": 65
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "hustle"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "sniper"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "moody"

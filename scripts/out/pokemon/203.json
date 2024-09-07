@@ -22,7 +22,7 @@
         "specialDefense": 65,
         "speed": 85
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "inner-focus"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "early-bird"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "sap-sipper"

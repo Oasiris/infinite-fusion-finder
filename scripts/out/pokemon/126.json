@@ -18,13 +18,11 @@
         "specialDefense": 85,
         "speed": 93
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "flame-body"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "vital-spirit"

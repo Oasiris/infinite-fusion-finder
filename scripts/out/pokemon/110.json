@@ -18,7 +18,7 @@
         "specialDefense": 70,
         "speed": 60
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "levitate"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "neutralizing-gas"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "stench"

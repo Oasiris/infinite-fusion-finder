@@ -18,13 +18,11 @@
         "specialDefense": 58,
         "speed": 33
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "shadow-tag"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "telepathy"

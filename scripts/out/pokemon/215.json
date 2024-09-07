@@ -22,7 +22,7 @@
         "specialDefense": 75,
         "speed": 115
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "inner-focus"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "keen-eye"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "pickpocket"

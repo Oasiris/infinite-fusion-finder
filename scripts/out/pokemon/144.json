@@ -22,13 +22,11 @@
         "specialDefense": 125,
         "speed": 85
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "pressure"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "snow-cloak"

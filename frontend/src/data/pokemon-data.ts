@@ -23,8 +23,7 @@ export type PokemonV1 = {
         speed: number
     }
 
-    abilities_normal: PokemonAbility[]
-    abilities_hidden: PokemonAbility[]
+    abilities: PokemonAbility[]
 
     moves: {
         levelup: PokemonMove[]

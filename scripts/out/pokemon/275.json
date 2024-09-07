@@ -18,7 +18,7 @@
         "specialDefense": 75,
         "speed": 90
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "adaptability"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "download"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "analytic"

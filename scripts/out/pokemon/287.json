@@ -22,7 +22,7 @@
         "specialDefense": 115,
         "speed": 80
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "synchronize"
@@ -30,9 +30,7 @@
         {
             "slot": 2,
             "ability": "trace"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "telepathy"

@@ -18,7 +18,7 @@
         "specialDefense": 80,
         "speed": 45
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "rock-head"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "lightning-rod"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "battle-armor"

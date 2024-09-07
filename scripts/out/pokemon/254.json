@@ -18,7 +18,7 @@
         "specialDefense": 66,
         "speed": 115
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "technician"
@@ -26,9 +26,7 @@
         {
             "slot": 2,
             "ability": "pickup"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "skill-link"

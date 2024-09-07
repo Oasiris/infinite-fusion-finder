@@ -18,13 +18,11 @@
         "specialDefense": 100,
         "speed": 100
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "flash-fire"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "drought"

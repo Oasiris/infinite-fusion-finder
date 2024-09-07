@@ -18,13 +18,11 @@
         "specialDefense": 35,
         "speed": 15
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "sturdy"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "overcoat"

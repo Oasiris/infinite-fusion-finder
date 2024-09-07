@@ -18,13 +18,11 @@
         "specialDefense": 48,
         "speed": 43
     },
-    "abilities_normal": [
+    "abilities": [
         {
             "slot": 1,
             "ability": "torrent"
-        }
-    ],
-    "abilities_hidden": [
+        },
         {
             "slot": "hidden",
             "ability": "sheer-force"
