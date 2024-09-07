@@ -64,8 +64,35 @@ const testmons: Record<string, PokemonV1> = {
     },
 }
 
+// TODO: Run a fusion on every single combination and ensure there is no pokemon with:
+// - two of the same type
+// - three or more types
+
 describe('fuseTypes', () => {
     const tests = [
+        // Base case 1
+        {
+            inputHead: pokemonData.find((p) => p.name === 'persian'),
+            inputBody: pokemonData.find((p) => p.name === 'persian'),
+            expectedTypes: ['normal'],
+        },
+        {
+            inputHead: pokemonData.find((p) => p.name === 'rattata'),
+            inputBody: pokemonData.find((p) => p.name === 'persian'),
+            expectedTypes: ['normal'],
+        },
+        // Base case 2
+        {
+            inputHead: pokemonData.find((p) => p.name === 'venusaur'),
+            inputBody: pokemonData.find((p) => p.name === 'venusaur'),
+            expectedTypes: ['grass', 'poison'],
+        },
+        {
+            inputHead: pokemonData.find((p) => p.name === 'bellossom'),
+            inputBody: pokemonData.find((p) => p.name === 'venusaur'),
+            expectedTypes: ['grass', 'poison'],
+        },
+        // Test the monotype head clause
         {
             inputHead: pokemonData.find((p) => p.name === 'oddish'),
             inputBody: pokemonData.find((p) => p.name === 'grimer'),
@@ -74,13 +101,58 @@ describe('fuseTypes', () => {
         {
             inputHead: pokemonData.find((p) => p.name === 'grimer'),
             inputBody: pokemonData.find((p) => p.name === 'oddish'),
-            expectedTypes: ['grass', 'poison'],
+            expectedTypes: ['poison', 'grass'],
+        },
+        // Types are inverse of each other
+        {
+            inputHead: pokemonData.find((p) => p.name === 'toxapex'),
+            inputBody: pokemonData.find((p) => p.name === 'tentacruel'),
+            expectedTypes: ['poison', 'water'],
+        },
+        {
+            inputHead: pokemonData.find((p) => p.name === 'tentacruel'),
+            inputBody: pokemonData.find((p) => p.name === 'toxapex'),
+            expectedTypes: ['water', 'poison'],
+        },
+        // poison-flying (head) + poison (body) can yield a mono-type poison
+        {
+            inputHead: pokemonData.find((p) => p.name === 'crobat'),
+            inputBody: pokemonData.find((p) => p.name === 'grimer'),
+            expectedTypes: ['poison'],
+        },
+        {
+            inputHead: pokemonData.find((p) => p.name === 'grimer'),
+            inputBody: pokemonData.find((p) => p.name === 'crobat'),
+            expectedTypes: ['poison', 'flying'],
+        },
+        // Test the dominant type clause for Normal/Flying
+        {
+            inputHead: pokemonData.find((p) => p.name === 'venusaur'),
+            inputBody: pokemonData.find((p) => p.name === 'pidgeot'),
+            expectedTypes: ['grass', 'flying'],
+        },
+        {
+            inputHead: pokemonData.find((p) => p.name === 'pidgeot'),
+            inputBody: pokemonData.find((p) => p.name === 'venusaur'),
+            expectedTypes: ['flying', 'poison'],
+        },
+        // Dominant type clause for Normal/Flying where body is pure Normal
+        {
+            inputHead: pokemonData.find((p) => p.name === 'dodrio'),
+            inputBody: pokemonData.find((p) => p.name === 'raticate'),
+            expectedTypes: ['flying', 'normal'],
+        },
+        {
+            inputHead: pokemonData.find((p) => p.name === 'raticate'),
+            inputBody: pokemonData.find((p) => p.name === 'dodrio'),
+            expectedTypes: ['normal', 'flying'],
         },
     ]
     for (const test of tests) {
-        it(`${test.inputHead!.name} and ${test.inputBody!.name} => ${test.expectedTypes}`, () => {
-            const fusedTypes = fuseTypes({ head: test.inputHead, body: test.inputBody })
-            expect(fusedTypes.map((t) => t.type)).toEqual(test.expectedTypes)
+        it(`${test.inputHead!.name} + ${test.inputBody!.name} => ${test.expectedTypes}`, () => {
+            const fusedTypes = fuseTypes({ head: test.inputHead!, body: test.inputBody! })
+            const expectedTypesProper = test.expectedTypes.map((type, i) => ({ type, slot: i + 1 }))
+            expect(fusedTypes).toEqual(expectedTypesProper)
         })
     }
 })
@@ -143,8 +215,8 @@ describe('fuse', () => {
         const fusedTypes = fuseTypes({ head, body })
         expect(fusedTypes).toEqual(
             expect.arrayContaining([
-                { type: 'grass', slot: 1, from: 'onemon' },
-                { type: 'fire', slot: 1, from: 'twomon' },
+                { type: 'grass', slot: 1 },
+                { type: 'fire', slot: 2 },
             ]),
         )
     })
@@ -184,12 +256,12 @@ describe('fuse', () => {
                 ]),
             },
             abilities: expect.arrayContaining([
-                { type: 'grass', slot: 1, from: 'onemon' },
-                { type: 'fire', slot: 1, from: 'twomon' },
+                { ability: 'overgrow', slot: 1, from: 'onemon' },
+                { ability: 'blaze', slot: 1, from: 'twomon' },
             ]),
             types: [
-                { type: 'grass', slot: 1, from: 'onemon' },
-                { type: 'fire', slot: 1, from: 'twomon' },
+                { type: 'grass', slot: 1 },
+                { type: 'fire', slot: 2 },
             ],
         })
     })

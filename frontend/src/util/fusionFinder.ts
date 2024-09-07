@@ -40,21 +40,39 @@ function fuseAbilities({ head, body }: FusionComponents): PokemonV1['abilities']
     )
 }
 
+function isTypeNormalFlying(pokemon: PokemonV1) {
+    return (
+        pokemon.types.map((t) => t.type).includes('normal') &&
+        pokemon.types.map((t) => t.type).includes('flying')
+    )
+}
+
 function fuseTypes({ head, body }: FusionComponents): PokemonV1['types'] {
-    const slot1Type = head.types[0].type
-    const slot2Type = head.types[1] ? head.types[1].type : head.types[0].type
+    let slot1Type = head.types[0].type
+    let slot2Type = body.types[1] ? body.types[1].type : body.types[0].type
 
     // https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Fusion#Typing
     // Dominant type clause
-    // Pokemon with Normal/Flying type will always pass Flying
+    // Pokemon with Normal/Flying type will always attempt to pass Flying
+    if (slot1Type !== 'flying' && isTypeNormalFlying(body)) {
+        slot2Type = 'flying'
+    }
+    if (slot2Type !== 'flying' && isTypeNormalFlying(head)) {
+        slot1Type = 'flying'
+    }
 
-    return uniqBy(
-        [
-            ...head.types.map((t) => ({ ...t, from: head.name })),
-            ...body.types.map((t) => ({ ...t, from: body.name })),
-        ],
-        'type',
-    )
+    // Monotype head clause
+    // If the head is already providing the element the body wants to provide,
+    // the body will provide its primary type instead
+    if (slot1Type === slot2Type) {
+        slot2Type = body.types[0].type
+    }
+
+    const fusedTypes = [{ slot: 1, type: slot1Type }]
+    if (slot2Type !== slot1Type) {
+        fusedTypes.push({ slot: 2, type: slot2Type })
+    }
+    return fusedTypes
 }
 
 export function fuse({ head, body }: FusionComponents): PokemonV1 {
