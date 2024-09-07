@@ -304,8 +304,19 @@ describe('findFusionsV1', () => {
                 const _fusions = findFusionsV1({ min: { bst: 10 } }, pokemonData)
                 expect(_fusions).toBeTruthy()
             })
+            it('filter by hp, atk, and bst', () => {
+                const _fusions = findFusionsV1(
+                    { min: { hp: 10, attack: 10, bst: 10 } },
+                    pokemonData,
+                )
+                expect(_fusions).toBeTruthy()
+            })
             it('filter by type', () => {
-                const _fusions = findFusionsV1({ type: 'water' }, pokemonData)
+                const _fusions = findFusionsV1({ types: ['water'] }, pokemonData)
+                expect(_fusions).toBeTruthy()
+            })
+            it('filter by types', () => {
+                const _fusions = findFusionsV1({ types: ['normal', 'flying'] }, pokemonData)
                 expect(_fusions).toBeTruthy()
             })
             it('filter by multiple 1', () => {
@@ -314,7 +325,7 @@ describe('findFusionsV1', () => {
                         moves: ['reflect'],
                         abilities: ['swift-swim'],
                         min: { bst: 10 },
-                        type: 'water',
+                        types: ['water'],
                     },
                     pokemonData,
                 )
@@ -325,7 +336,7 @@ describe('findFusionsV1', () => {
                     {
                         moves: ['reflect'],
                         min: { bst: 10 },
-                        type: 'water',
+                        types: ['water'],
                     },
                     pokemonData,
                 )
@@ -335,7 +346,7 @@ describe('findFusionsV1', () => {
                 const _fusions = findFusionsV1(
                     {
                         min: { bst: 10 },
-                        type: 'normal',
+                        types: ['normal'],
                     },
                     pokemonData,
                 )

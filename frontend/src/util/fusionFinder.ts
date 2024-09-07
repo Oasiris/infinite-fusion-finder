@@ -18,17 +18,14 @@ function lookup(data: PokemonV1[], { ifDex }: { ifDex: number }): PokemonV1 {
     return data[ifDex - 1]
 }
 
-function fuseStats({
-    head: { stats: head },
-    body: { stats: body },
-}: FusionComponents<PokemonV1>): PokemonV1['stats'] {
+function fuseStats(comp: FusionComponents<PokemonV1>): PokemonV1['stats'] {
     return {
-        hp: (2 * head.hp + body.hp) / 3,
-        attack: (head.attack + 2 * body.attack) / 3,
-        defense: (head.defense + 2 * body.defense) / 3,
-        specialAttack: (2 * head.specialAttack + body.specialAttack) / 3,
-        specialDefense: (2 * head.specialDefense + body.specialDefense) / 3,
-        speed: (head.speed + 2 * body.speed) / 3,
+        hp: (2 * comp.head.stats.hp + comp.body.stats.hp) / 3,
+        attack: (comp.head.stats.attack + 2 * comp.body.stats.attack) / 3,
+        defense: (comp.head.stats.defense + 2 * comp.body.stats.defense) / 3,
+        specialAttack: (2 * comp.head.stats.specialAttack + comp.body.stats.specialAttack) / 3,
+        specialDefense: (2 * comp.head.stats.specialDefense + comp.body.stats.specialDefense) / 3,
+        speed: (comp.head.stats.speed + 2 * comp.body.stats.speed) / 3,
     }
 }
 
@@ -60,24 +57,23 @@ function fuseAbilities({
 
 function isTypeNormalFlying(types: PokemonV1['types']) {
     return (
-        types.map((t) => t.type).includes('normal') && types.map((t) => t.type).includes('flying')
+        types.length === 2 &&
+        (types[0].type === 'normal' || types[1].type === 'normal') &&
+        (types[0].type === 'flying' || types[1].type === 'flying')
     )
 }
 
-function fuseTypes({
-    head: { types: head },
-    body: { types: body },
-}: FusionComponents<PokemonV1>): PokemonV1['types'] {
-    let slot1Type = head[0].type
-    let slot2Type = body[1] ? body[1].type : body[0].type
+function fuseTypes(input: FusionComponents<PokemonV1>): PokemonV1['types'] {
+    let slot1Type = input.head.types[0].type
+    let slot2Type = input.body.types[1] ? input.body.types[1].type : input.body.types[0].type
 
     // https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Fusion#Typing
     // Dominant type clause
     // Pokemon with Normal/Flying type will always attempt to pass Flying
-    if (slot1Type !== 'flying' && isTypeNormalFlying(body)) {
+    if (slot1Type !== 'flying' && isTypeNormalFlying(input.body.types)) {
         slot2Type = 'flying'
     }
-    if (slot2Type !== 'flying' && isTypeNormalFlying(head)) {
+    if (slot2Type !== 'flying' && isTypeNormalFlying(input.head.types)) {
         slot1Type = 'flying'
     }
 
@@ -85,7 +81,7 @@ function fuseTypes({
     // If the head is already providing the element the body wants to provide,
     // the body will provide its primary type instead
     if (slot1Type === slot2Type) {
-        slot2Type = body[0].type
+        slot2Type = input.body.types[0].type
     }
 
     const fusedTypes = [{ slot: 1, type: slot1Type }]
@@ -135,7 +131,7 @@ type FusionFilterOptionsV1 = {
     names?: string[]
     moves?: string[]
     abilities?: string[]
-    type?: string
+    types?: string[]
 
     min?: {
         hp?: number
@@ -149,7 +145,7 @@ type FusionFilterOptionsV1 = {
 }
 
 export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: PokemonV1[]): Combo[] {
-    const { names = [], abilities = [], moves = [], min = {} } = filterOptions
+    const { names = [], abilities = [], moves = [], min = {}, types = [] } = filterOptions
 
     // Build all combos
     const allDexNums = data.map((pokemon) => pokemon.ifDex)
@@ -234,13 +230,25 @@ export function findFusionsV1(filterOptions: FusionFilterOptionsV1, data: Pokemo
     }
 
     // Apply single-type constraint
-    if (filterOptions.type) {
+    if (types.length === 1) {
         combos = combos.filter(([head, body]) => {
             const fusedTypes = fuseTypes({
                 head: lookup(data, { ifDex: head }),
                 body: lookup(data, { ifDex: body }),
             })
-            return fusedTypes.some((type) => type.type === filterOptions.type)
+            return fusedTypes.some((type) => type.type === types[0])
+        })
+    } else if (types.length === 2) {
+        combos = combos.filter(([head, body]) => {
+            const fusedTypes = fuseTypes({
+                head: lookup(data, { ifDex: head }),
+                body: lookup(data, { ifDex: body }),
+            })
+            return (
+                fusedTypes.length === 2 &&
+                fusedTypes[0].type === types[0] &&
+                fusedTypes[1].type === types[1]
+            )
         })
     }
 
