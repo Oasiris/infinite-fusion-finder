@@ -11,11 +11,11 @@
         }
     ],
     "stats": {
-        "hp": 45,
-        "attack": 49,
-        "defense": 49,
-        "specialAttack": 65,
-        "specialDefense": 65,
+        "hp": 60,
+        "attack": 80,
+        "defense": 110,
+        "specialAttack": 50,
+        "specialDefense": 80,
         "speed": 45
     },
     "abilities_normal": [
@@ -31,97 +31,102 @@
     "abilities_hidden": [
         {
             "slot": "hidden",
-            "ability": "chlorophyll"
+            "ability": "battle-armor"
         }
     ],
     "moves": {
         "levelup": [
             {
-                "name": "tackle",
+                "name": "bone-club",
                 "learn_method": "levelup",
                 "level": 1
             },
             {
                 "name": "growl",
                 "learn_method": "levelup",
-                "level": 3
+                "level": 1
             },
             {
-                "name": "leech-seed",
+                "name": "headbutt",
                 "learn_method": "levelup",
-                "level": 7
+                "level": 1
             },
             {
-                "name": "vine-whip",
+                "name": "tail-whip",
                 "learn_method": "levelup",
-                "level": 9
+                "level": 1
             },
             {
-                "name": "poison-powder",
-                "learn_method": "levelup",
-                "level": 13
-            },
-            {
-                "name": "sleep-powder",
+                "name": "leer",
                 "learn_method": "levelup",
                 "level": 13
             },
             {
-                "name": "take-down",
+                "name": "focus-energy",
                 "learn_method": "levelup",
-                "level": 15
+                "level": 17
             },
             {
-                "name": "razor-leaf",
-                "learn_method": "levelup",
-                "level": 19
-            },
-            {
-                "name": "sweet-scent",
+                "name": "bonemerang",
                 "learn_method": "levelup",
                 "level": 21
             },
             {
-                "name": "growth",
+                "name": "rage",
                 "learn_method": "levelup",
-                "level": 25
+                "level": 23
             },
             {
-                "name": "double-edge",
+                "name": "false-swipe",
                 "learn_method": "levelup",
                 "level": 27
             },
             {
-                "name": "worry-seed",
-                "learn_method": "levelup",
-                "level": 31
-            },
-            {
-                "name": "synthesis",
+                "name": "thrash",
                 "learn_method": "levelup",
                 "level": 33
             },
             {
-                "name": "seed-bomb",
+                "name": "fling",
                 "learn_method": "levelup",
                 "level": 37
+            },
+            {
+                "name": "stomping-tantrum",
+                "learn_method": "levelup",
+                "level": 43
+            },
+            {
+                "name": "endeavor",
+                "learn_method": "levelup",
+                "level": 49
+            },
+            {
+                "name": "double-edge",
+                "learn_method": "levelup",
+                "level": 53
+            },
+            {
+                "name": "retaliate",
+                "learn_method": "levelup",
+                "level": 59
+            },
+            {
+                "name": "bone-rush",
+                "learn_method": "levelup",
+                "level": 65
             }
         ],
         "machine": [
-            {
-                "name": "cut",
-                "learn_method": "machine",
-                "tm_id": "hm01"
-            },
             {
                 "name": "strength",
                 "learn_method": "machine",
                 "tm_id": "hm04"
             },
             {
-                "name": "flash",
+                "name": "rock-climb",
                 "learn_method": "machine",
-                "tm_id": "hm08"
+                "tm_id": "hm10"
             },
             {
                 "name": "toxic",
@@ -129,14 +134,14 @@
                 "tm_id": "tm06"
             },
             {
-                "name": "venoshock",
-                "learn_method": "machine",
-                "tm_id": "tm09"
-            },
-            {
                 "name": "hidden-power",
                 "learn_method": "machine",
                 "tm_id": "tm10"
+            },
+            {
+                "name": "brutal-swing",
+                "learn_method": "machine",
+                "tm_id": "tm109"
             },
             {
                 "name": "sunny-day",
@@ -144,9 +149,39 @@
                 "tm_id": "tm11"
             },
             {
-                "name": "light-screen",
+                "name": "focus-punch",
                 "learn_method": "machine",
-                "tm_id": "tm16"
+                "tm_id": "tm112"
+            },
+            {
+                "name": "power-up-punch",
+                "learn_method": "machine",
+                "tm_id": "tm115"
+            },
+            {
+                "name": "stomping-tantrum",
+                "learn_method": "machine",
+                "tm_id": "tm119"
+            },
+            {
+                "name": "throat-chop",
+                "learn_method": "machine",
+                "tm_id": "tm120"
+            },
+            {
+                "name": "ice-beam",
+                "learn_method": "machine",
+                "tm_id": "tm13"
+            },
+            {
+                "name": "blizzard",
+                "learn_method": "machine",
+                "tm_id": "tm14"
+            },
+            {
+                "name": "hyper-beam",
+                "learn_method": "machine",
+                "tm_id": "tm15"
             },
             {
                 "name": "protect",
@@ -154,19 +189,19 @@
                 "tm_id": "tm17"
             },
             {
-                "name": "safeguard",
-                "learn_method": "machine",
-                "tm_id": "tm20"
-            },
-            {
                 "name": "frustration",
                 "learn_method": "machine",
                 "tm_id": "tm21"
             },
             {
-                "name": "solar-beam",
+                "name": "smack-down",
                 "learn_method": "machine",
-                "tm_id": "tm22"
+                "tm_id": "tm23"
+            },
+            {
+                "name": "earthquake",
+                "learn_method": "machine",
+                "tm_id": "tm26"
             },
             {
                 "name": "return",
@@ -174,14 +209,44 @@
                 "tm_id": "tm27"
             },
             {
+                "name": "dig",
+                "learn_method": "machine",
+                "tm_id": "tm28"
+            },
+            {
+                "name": "brick-break",
+                "learn_method": "machine",
+                "tm_id": "tm31"
+            },
+            {
                 "name": "double-team",
                 "learn_method": "machine",
                 "tm_id": "tm32"
             },
             {
-                "name": "sludge-bomb",
+                "name": "flamethrower",
                 "learn_method": "machine",
-                "tm_id": "tm36"
+                "tm_id": "tm35"
+            },
+            {
+                "name": "sandstorm",
+                "learn_method": "machine",
+                "tm_id": "tm37"
+            },
+            {
+                "name": "fire-blast",
+                "learn_method": "machine",
+                "tm_id": "tm38"
+            },
+            {
+                "name": "rock-tomb",
+                "learn_method": "machine",
+                "tm_id": "tm39"
+            },
+            {
+                "name": "aerial-ace",
+                "learn_method": "machine",
+                "tm_id": "tm40"
             },
             {
                 "name": "facade",
@@ -199,6 +264,11 @@
                 "tm_id": "tm45"
             },
             {
+                "name": "thief",
+                "learn_method": "machine",
+                "tm_id": "tm46"
+            },
+            {
                 "name": "round",
                 "learn_method": "machine",
                 "tm_id": "tm48"
@@ -209,9 +279,39 @@
                 "tm_id": "tm49"
             },
             {
-                "name": "energy-ball",
+                "name": "focus-blast",
                 "learn_method": "machine",
-                "tm_id": "tm53"
+                "tm_id": "tm52"
+            },
+            {
+                "name": "false-swipe",
+                "learn_method": "machine",
+                "tm_id": "tm54"
+            },
+            {
+                "name": "fling",
+                "learn_method": "machine",
+                "tm_id": "tm56"
+            },
+            {
+                "name": "incinerate",
+                "learn_method": "machine",
+                "tm_id": "tm59"
+            },
+            {
+                "name": "retaliate",
+                "learn_method": "machine",
+                "tm_id": "tm67"
+            },
+            {
+                "name": "giga-impact",
+                "learn_method": "machine",
+                "tm_id": "tm68"
+            },
+            {
+                "name": "stone-edge",
+                "learn_method": "machine",
+                "tm_id": "tm71"
             },
             {
                 "name": "swords-dance",
@@ -219,14 +319,9 @@
                 "tm_id": "tm75"
             },
             {
-                "name": "work-up",
+                "name": "bulldoze",
                 "learn_method": "machine",
-                "tm_id": "tm83"
-            },
-            {
-                "name": "grass-knot",
-                "learn_method": "machine",
-                "tm_id": "tm86"
+                "tm_id": "tm78"
             },
             {
                 "name": "swagger",
@@ -251,11 +346,31 @@
         ],
         "tutor": [
             {
+                "name": "earth-power",
+                "learn_method": "tutor"
+            },
+            {
+                "name": "fire-punch",
+                "learn_method": "tutor"
+            },
+            {
                 "name": "fury-cutter",
                 "learn_method": "tutor"
             },
             {
-                "name": "grass-pledge",
+                "name": "iron-defense",
+                "learn_method": "tutor"
+            },
+            {
+                "name": "iron-head",
+                "learn_method": "tutor"
+            },
+            {
+                "name": "iron-tail",
+                "learn_method": "tutor"
+            },
+            {
+                "name": "mega-kick",
                 "learn_method": "tutor"
             },
             {
@@ -263,71 +378,18 @@
                 "learn_method": "tutor"
             },
             {
-                "name": "synthesis",
+                "name": "outrage",
+                "learn_method": "tutor"
+            },
+            {
+                "name": "stealth-rock",
+                "learn_method": "tutor"
+            },
+            {
+                "name": "thunder-punch",
                 "learn_method": "tutor"
             }
         ],
-        "egg": [
-            {
-                "name": "amnesia",
-                "learn_method": "egg"
-            },
-            {
-                "name": "charm",
-                "learn_method": "egg"
-            },
-            {
-                "name": "curse",
-                "learn_method": "egg"
-            },
-            {
-                "name": "endure",
-                "learn_method": "egg"
-            },
-            {
-                "name": "giga-drain",
-                "learn_method": "egg"
-            },
-            {
-                "name": "grass-whistle",
-                "learn_method": "egg"
-            },
-            {
-                "name": "grassy-terrain",
-                "learn_method": "egg"
-            },
-            {
-                "name": "ingrain",
-                "learn_method": "egg"
-            },
-            {
-                "name": "leaf-storm",
-                "learn_method": "egg"
-            },
-            {
-                "name": "magical-leaf",
-                "learn_method": "egg"
-            },
-            {
-                "name": "nature-power",
-                "learn_method": "egg"
-            },
-            {
-                "name": "petal-dance",
-                "learn_method": "egg"
-            },
-            {
-                "name": "power-whip",
-                "learn_method": "egg"
-            },
-            {
-                "name": "skull-bash",
-                "learn_method": "egg"
-            },
-            {
-                "name": "sludge",
-                "learn_method": "egg"
-            }
-        ]
+        "egg": []
     }
 }

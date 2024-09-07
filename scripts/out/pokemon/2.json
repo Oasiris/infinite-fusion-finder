@@ -15,12 +15,12 @@
         }
     ],
     "stats": {
-        "hp": 45,
-        "attack": 49,
-        "defense": 49,
-        "specialAttack": 65,
-        "specialDefense": 65,
-        "speed": 45
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "speed": 60
     },
     "abilities_normal": [
         {
@@ -37,19 +37,19 @@
     "moves": {
         "levelup": [
             {
-                "name": "tackle",
+                "name": "growl",
                 "learn_method": "levelup",
                 "level": 1
             },
             {
-                "name": "growl",
-                "learn_method": "levelup",
-                "level": 3
-            },
-            {
                 "name": "leech-seed",
                 "learn_method": "levelup",
-                "level": 7
+                "level": 1
+            },
+            {
+                "name": "tackle",
+                "learn_method": "levelup",
+                "level": 1
             },
             {
                 "name": "vine-whip",
@@ -74,37 +74,37 @@
             {
                 "name": "razor-leaf",
                 "learn_method": "levelup",
-                "level": 19
+                "level": 20
             },
             {
                 "name": "sweet-scent",
                 "learn_method": "levelup",
-                "level": 21
+                "level": 23
             },
             {
                 "name": "growth",
                 "learn_method": "levelup",
-                "level": 25
+                "level": 28
             },
             {
                 "name": "double-edge",
                 "learn_method": "levelup",
-                "level": 27
+                "level": 31
             },
             {
                 "name": "worry-seed",
                 "learn_method": "levelup",
-                "level": 31
+                "level": 36
             },
             {
                 "name": "synthesis",
                 "learn_method": "levelup",
-                "level": 33
+                "level": 39
             },
             {
-                "name": "seed-bomb",
+                "name": "solar-beam",
                 "learn_method": "levelup",
-                "level": 37
+                "level": 44
             }
         ],
         "machine": [
@@ -267,67 +267,6 @@
                 "learn_method": "tutor"
             }
         ],
-        "egg": [
-            {
-                "name": "amnesia",
-                "learn_method": "egg"
-            },
-            {
-                "name": "charm",
-                "learn_method": "egg"
-            },
-            {
-                "name": "curse",
-                "learn_method": "egg"
-            },
-            {
-                "name": "endure",
-                "learn_method": "egg"
-            },
-            {
-                "name": "giga-drain",
-                "learn_method": "egg"
-            },
-            {
-                "name": "grass-whistle",
-                "learn_method": "egg"
-            },
-            {
-                "name": "grassy-terrain",
-                "learn_method": "egg"
-            },
-            {
-                "name": "ingrain",
-                "learn_method": "egg"
-            },
-            {
-                "name": "leaf-storm",
-                "learn_method": "egg"
-            },
-            {
-                "name": "magical-leaf",
-                "learn_method": "egg"
-            },
-            {
-                "name": "nature-power",
-                "learn_method": "egg"
-            },
-            {
-                "name": "petal-dance",
-                "learn_method": "egg"
-            },
-            {
-                "name": "power-whip",
-                "learn_method": "egg"
-            },
-            {
-                "name": "skull-bash",
-                "learn_method": "egg"
-            },
-            {
-                "name": "sludge",
-                "learn_method": "egg"
-            }
-        ]
+        "egg": []
     }
 }

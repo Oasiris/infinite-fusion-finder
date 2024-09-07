@@ -6,6 +6,17 @@ export type FilterOptions = {
     enableFused: boolean
     enableUnfused: boolean
     enableLegendaries: boolean
+
+    moves: string[]
+    ability: string
+    types: string[]
+
+    minHp: number
+    minAttack: number
+    minDefense: number
+    minSpecialAttack: number
+    minSpecialDefense: number
+    minSpeed: number
 }
 
 export type SortOptions = {
@@ -20,13 +31,36 @@ export const SORT_ORDER_DESC = 'desc'
 
 // NOTE: Eventually there should be separation between view controller and calculation controller
 
-export function getPokemonAndFusions(
+export function applyFilterAndSort(
     filterOptions: FilterOptions,
     sortOptions: SortOptions,
 ): PokemonV1[] {
     console.log('Hello, world!', filterOptions, sortOptions)
 
-    const data = POKEMON_DATA
+    let data = POKEMON_DATA
+
+    // Apply stat filters
+    data = data.filter((pokemon) => {
+        if (pokemon.stats.hp < filterOptions.minHp) {
+            return false
+        }
+        if (pokemon.stats.attack < filterOptions.minAttack) {
+            return false
+        }
+        if (pokemon.stats.defense < filterOptions.minDefense) {
+            return false
+        }
+        if (pokemon.stats.specialAttack < filterOptions.minSpecialAttack) {
+            return false
+        }
+        if (pokemon.stats.specialDefense < filterOptions.minSpecialDefense) {
+            return false
+        }
+        if (pokemon.stats.speed < filterOptions.minSpeed) {
+            return false
+        }
+        return true
+    })
 
     // Sort
     switch (sortOptions.sortBy) {

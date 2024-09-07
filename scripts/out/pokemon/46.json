@@ -15,12 +15,12 @@
         }
     ],
     "stats": {
-        "hp": 45,
-        "attack": 49,
-        "defense": 49,
-        "specialAttack": 65,
-        "specialDefense": 65,
-        "speed": 45
+        "hp": 35,
+        "attack": 70,
+        "defense": 55,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "speed": 25
     },
     "abilities_normal": [
         {
@@ -35,80 +35,70 @@
     "abilities_hidden": [
         {
             "slot": "hidden",
-            "ability": "chlorophyll"
+            "ability": "damp"
         }
     ],
     "moves": {
         "levelup": [
             {
-                "name": "tackle",
+                "name": "scratch",
                 "learn_method": "levelup",
                 "level": 1
             },
             {
-                "name": "growl",
-                "learn_method": "levelup",
-                "level": 3
-            },
-            {
-                "name": "leech-seed",
-                "learn_method": "levelup",
-                "level": 7
-            },
-            {
-                "name": "vine-whip",
-                "learn_method": "levelup",
-                "level": 9
-            },
-            {
                 "name": "poison-powder",
                 "learn_method": "levelup",
-                "level": 13
+                "level": 6
             },
             {
-                "name": "sleep-powder",
+                "name": "stun-spore",
                 "learn_method": "levelup",
-                "level": 13
+                "level": 6
             },
             {
-                "name": "take-down",
+                "name": "absorb",
                 "learn_method": "levelup",
-                "level": 15
+                "level": 11
             },
             {
-                "name": "razor-leaf",
+                "name": "fury-cutter",
                 "learn_method": "levelup",
-                "level": 19
+                "level": 17
             },
             {
-                "name": "sweet-scent",
+                "name": "spore",
                 "learn_method": "levelup",
-                "level": 21
+                "level": 22
             },
             {
-                "name": "growth",
-                "learn_method": "levelup",
-                "level": 25
-            },
-            {
-                "name": "double-edge",
+                "name": "slash",
                 "learn_method": "levelup",
                 "level": 27
             },
             {
-                "name": "worry-seed",
-                "learn_method": "levelup",
-                "level": 31
-            },
-            {
-                "name": "synthesis",
+                "name": "growth",
                 "learn_method": "levelup",
                 "level": 33
             },
             {
-                "name": "seed-bomb",
+                "name": "giga-drain",
                 "learn_method": "levelup",
-                "level": 37
+                "level": 38
+            },
+            {
+                "name": "aromatherapy",
+                "learn_method": "levelup",
+                "level": 43
+            },
+            {
+                "name": "rage-powder",
+                "learn_method": "levelup",
+                "level": 49
+            },
+            {
+                "name": "x-scissor",
+                "learn_method": "levelup",
+                "level": 54
             }
         ],
         "machine": [
@@ -118,14 +108,14 @@
                 "tm_id": "hm01"
             },
             {
-                "name": "strength",
-                "learn_method": "machine",
-                "tm_id": "hm04"
-            },
-            {
                 "name": "flash",
                 "learn_method": "machine",
                 "tm_id": "hm08"
+            },
+            {
+                "name": "hone-claws",
+                "learn_method": "machine",
+                "tm_id": "tm01"
             },
             {
                 "name": "toxic",
@@ -143,9 +133,19 @@
                 "tm_id": "tm10"
             },
             {
+                "name": "spore",
+                "learn_method": "machine",
+                "tm_id": "tm102"
+            },
+            {
                 "name": "sunny-day",
                 "learn_method": "machine",
                 "tm_id": "tm11"
+            },
+            {
+                "name": "leech-life",
+                "learn_method": "machine",
+                "tm_id": "tm114"
             },
             {
                 "name": "light-screen",
@@ -156,11 +156,6 @@
                 "name": "protect",
                 "learn_method": "machine",
                 "tm_id": "tm17"
-            },
-            {
-                "name": "safeguard",
-                "learn_method": "machine",
-                "tm_id": "tm20"
             },
             {
                 "name": "frustration",
@@ -178,6 +173,16 @@
                 "tm_id": "tm27"
             },
             {
+                "name": "dig",
+                "learn_method": "machine",
+                "tm_id": "tm28"
+            },
+            {
+                "name": "brick-break",
+                "learn_method": "machine",
+                "tm_id": "tm31"
+            },
+            {
                 "name": "double-team",
                 "learn_method": "machine",
                 "tm_id": "tm32"
@@ -186,6 +191,11 @@
                 "name": "sludge-bomb",
                 "learn_method": "machine",
                 "tm_id": "tm36"
+            },
+            {
+                "name": "aerial-ace",
+                "learn_method": "machine",
+                "tm_id": "tm40"
             },
             {
                 "name": "facade",
@@ -203,14 +213,14 @@
                 "tm_id": "tm45"
             },
             {
+                "name": "thief",
+                "learn_method": "machine",
+                "tm_id": "tm46"
+            },
+            {
                 "name": "round",
                 "learn_method": "machine",
                 "tm_id": "tm48"
-            },
-            {
-                "name": "echoed-voice",
-                "learn_method": "machine",
-                "tm_id": "tm49"
             },
             {
                 "name": "energy-ball",
@@ -218,14 +228,24 @@
                 "tm_id": "tm53"
             },
             {
+                "name": "false-swipe",
+                "learn_method": "machine",
+                "tm_id": "tm54"
+            },
+            {
                 "name": "swords-dance",
                 "learn_method": "machine",
                 "tm_id": "tm75"
             },
             {
-                "name": "work-up",
+                "name": "struggle-bug",
                 "learn_method": "machine",
-                "tm_id": "tm83"
+                "tm_id": "tm76"
+            },
+            {
+                "name": "x-scissor",
+                "learn_method": "machine",
+                "tm_id": "tm81"
             },
             {
                 "name": "grass-knot",
@@ -255,15 +275,11 @@
         ],
         "tutor": [
             {
+                "name": "bug-bite",
+                "learn_method": "tutor"
+            },
+            {
                 "name": "fury-cutter",
-                "learn_method": "tutor"
-            },
-            {
-                "name": "grass-pledge",
-                "learn_method": "tutor"
-            },
-            {
-                "name": "mud-slap",
                 "learn_method": "tutor"
             },
             {
@@ -273,15 +289,19 @@
         ],
         "egg": [
             {
-                "name": "amnesia",
+                "name": "agility",
                 "learn_method": "egg"
             },
             {
-                "name": "charm",
+                "name": "bug-bite",
                 "learn_method": "egg"
             },
             {
-                "name": "curse",
+                "name": "counter",
+                "learn_method": "egg"
+            },
+            {
+                "name": "cross-poison",
                 "learn_method": "egg"
             },
             {
@@ -289,11 +309,11 @@
                 "learn_method": "egg"
             },
             {
-                "name": "giga-drain",
+                "name": "fell-stinger",
                 "learn_method": "egg"
             },
             {
-                "name": "grass-whistle",
+                "name": "flail",
                 "learn_method": "egg"
             },
             {
@@ -301,35 +321,39 @@
                 "learn_method": "egg"
             },
             {
-                "name": "ingrain",
+                "name": "leech-seed",
                 "learn_method": "egg"
             },
             {
-                "name": "leaf-storm",
+                "name": "metal-claw",
                 "learn_method": "egg"
             },
             {
-                "name": "magical-leaf",
+                "name": "natural-gift",
                 "learn_method": "egg"
             },
             {
-                "name": "nature-power",
+                "name": "psybeam",
                 "learn_method": "egg"
             },
             {
-                "name": "petal-dance",
+                "name": "pursuit",
                 "learn_method": "egg"
             },
             {
-                "name": "power-whip",
+                "name": "rototiller",
                 "learn_method": "egg"
             },
             {
-                "name": "skull-bash",
+                "name": "screech",
                 "learn_method": "egg"
             },
             {
-                "name": "sludge",
+                "name": "sweet-scent",
+                "learn_method": "egg"
+            },
+            {
+                "name": "wide-guard",
                 "learn_method": "egg"
             }
         ]

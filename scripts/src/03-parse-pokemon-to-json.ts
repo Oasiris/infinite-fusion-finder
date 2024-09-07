@@ -16,7 +16,6 @@ import natDexToIFDex from '../out/natdex-to-ifdex.json'
 import versionGroups from '../in/version-groups.json'
 import tutorMoves from '../out/tutor-moves.json'
 import machineMoves from '../out/machines.json'
-import pokemon01 from '../out/api-pokemon/1.json'
 
 const tutorMoveNames = tutorMoves.map((move) => move.move_name)
 
@@ -70,12 +69,12 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
     }))
 
     entry.stats = {
-        hp: pokemon01.stats[0].base_stat,
-        attack: pokemon01.stats[1].base_stat,
-        defense: pokemon01.stats[2].base_stat,
-        specialAttack: pokemon01.stats[3].base_stat,
-        specialDefense: pokemon01.stats[4].base_stat,
-        speed: pokemon01.stats[5].base_stat,
+        hp: data.stats[0].base_stat,
+        attack: data.stats[1].base_stat,
+        defense: data.stats[2].base_stat,
+        specialAttack: data.stats[3].base_stat,
+        specialDefense: data.stats[4].base_stat,
+        speed: data.stats[5].base_stat,
     }
 
     entry.abilities_normal = data.abilities
@@ -85,7 +84,7 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
             ability: ability.ability.name,
         }))
 
-    entry.abilities_hidden = pokemon01.abilities
+    entry.abilities_hidden = data.abilities
         .filter((ability: { is_hidden: boolean }) => ability.is_hidden)
         .map((ability: { ability: { name: string } }) => ({
             slot: 'hidden',
@@ -93,7 +92,7 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
         }))
 
     entry.moves = { levelup: [], machine: [], tutor: [], egg: [] }
-    entry.moves.levelup = pokemon01.moves
+    entry.moves.levelup = data.moves
         .filter((move) =>
             move.version_group_details.some(
                 (versionGroupDetail) =>
@@ -124,7 +123,7 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
     // On the other hand, Hone Claws was a TM in Gen 5/6 but not in Gen 7, but Charmander _can_ learn Hone Claws via machine in PIF.
     // As a simple heuristic, just ignore gen 1 for now.
 
-    entry.moves.machine = pokemon01.moves
+    entry.moves.machine = data.moves
         .filter((move) => machineMoves.some((m) => m.move_name === move.move.name))
         .filter((move) =>
             move.version_group_details.some((d) =>
@@ -139,7 +138,7 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
     entry.moves.machine.sort(byTMID)
 
     // Assume same for tutor moves
-    entry.moves.tutor = pokemon01.moves
+    entry.moves.tutor = data.moves
         .filter((move) => tutorMoveNames.includes(move.move.name))
         .filter((move) =>
             move.version_group_details.some((d) =>
@@ -153,7 +152,7 @@ async function buildPokemonEntryV1(data): Promise<PokemonV1> {
     entry.moves.tutor.sort(inAscendingOrderByName)
 
     // Copy USUM egg moves
-    entry.moves.egg = pokemon01.moves
+    entry.moves.egg = data.moves
         .filter((move) =>
             move.version_group_details.some(
                 (versionGroupDetail) =>

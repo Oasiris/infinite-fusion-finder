@@ -1,16 +1,27 @@
 import React from 'react'
 import POKEMON_DATA from '../data/pokemon-index.json'
-import {
-    FilterOptions,
-    getPokemonAndFusions,
-    SORT_OPTION_DEX_NO,
-    SORT_OPTION_NAME,
-    SORT_ORDER_ASC,
-    SORT_ORDER_DESC,
-    SortOptions,
-} from '../util/fusionFinder'
+import { FilterOptions, SortOptions, applyFilterAndSort } from '../controllers/searchController'
 
 type PokemonData = typeof POKEMON_DATA
+
+const DEFAULT_FILTER_OPTIONS: FilterOptions = {
+    enableFused: false,
+    enableUnfused: true,
+    enableLegendaries: false,
+    minHp: 0,
+    minAttack: 0,
+    minDefense: 0,
+    minSpecialAttack: 0,
+    minSpecialDefense: 0,
+    minSpeed: 0,
+    moves: [],
+    ability: '',
+    types: [],
+}
+const DEFAULT_SORT_OPTIONS: SortOptions = {
+    sortBy: 'dex_no',
+    sortOrder: 'asc',
+}
 
 export default function SearchPage() {
     // The search page owns the state of filterOptions and sortOptions.
@@ -19,16 +30,9 @@ export default function SearchPage() {
 
     // TableView displays the data in a table format, according to sortOptions and filterOptions.
 
-    const [filterOptions, setFilterOptions] = React.useState({
-        enableFused: false,
-        enableUnfused: true,
-        enableLegendaries: false,
-    } as FilterOptions)
-    const [sortOptions, setSortOptions] = React.useState({
-        sortBy: 'dex_no',
-        sortOrder: 'asc',
-    } as SortOptions)
-    const data = getPokemonAndFusions(filterOptions, sortOptions)
+    const [filterOptions, setFilterOptions] = React.useState(DEFAULT_FILTER_OPTIONS)
+    const [sortOptions, setSortOptions] = React.useState(DEFAULT_SORT_OPTIONS)
+    const data = applyFilterAndSort(filterOptions, sortOptions)
 
     return (
         <>
@@ -76,6 +80,10 @@ function SearchControls({
     const handleSortOrderDesc = () => {
         setSortOptions({ ...sortOptions, sortOrder: 'desc' })
     }
+    const handleMinHpChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFilterOptions({ ...filterOptions, minHp: parseInt(event.target.value) })
+    }
+
     return (
         <div>
             <br />
@@ -129,6 +137,9 @@ function SearchControls({
                 Sort in Descending Order
             </Switch>
             <br />
+            <Range value={filterOptions.minHp} onChange={handleMinHpChange}>
+                Min HP
+            </Range>
         </div>
     )
 }
@@ -152,9 +163,53 @@ function Switch({
     )
 }
 
+function Range({
+    children,
+    value,
+    min = 0,
+    max = 255,
+    onChange,
+    ...props
+}: {
+    children: React.ReactNode
+    value: number
+    min?: number
+    max?: number
+    showValue?: boolean
+    onChange?: React.ChangeEventHandler<HTMLInputElement>
+    [key: string]: any
+}) {
+    return (
+        <div>
+            <label>
+                {children}
+                <input
+                    type="number"
+                    value={value}
+                    min={min}
+                    max={max}
+                    onChange={onChange}
+                    {...props}
+                />
+                <input
+                    type="range"
+                    value={value}
+                    min={min}
+                    max={max}
+                    onChange={onChange}
+                    {...props}
+                />
+            </label>
+        </div>
+    )
+}
+
 function TableView({ data }: { data: PokemonData }) {
     return (
         <>
+            <div>
+                Results: <span>{data.length}</span>
+            </div>
             <table>
                 <tbody>
                     <tr>
