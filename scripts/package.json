@@ -8,6 +8,7 @@
   "author": "",
   "description": "",
   "dependencies": {
+    "globby": "^14.0.2",
     "lodash": "^4.17.21",
     "ramda": "^0.30.1"
   },

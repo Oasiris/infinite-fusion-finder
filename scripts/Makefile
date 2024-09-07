@@ -19,4 +19,14 @@ help: ## Display this help.
 
 .PHONY: fetch-pokemon
 fetch-pokemon: ## Fetch pokemon data from PokeAPI
-	npx tsx src/fetch-pokemon.ts
+	npx tsx src/01-fetch-pokemon.ts
+
+
+.PHONY: map-natdex-to-if-dex
+map-natdex-to-if-dex: ## Create map from NatDex to Infinite Fusion Dex
+	npx tsx src/02-map-natdex-to-if-dex.ts
+
+
+.PHONY: parse-pokemon-to-json
+parse-pokemon-to-json: ## Parse from PokeAPI/NatDex to Infinite Fusion app-ready JSON
+	npx tsx src/03-parse-pokemon-to-json.ts

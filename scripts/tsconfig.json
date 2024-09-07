@@ -10,7 +10,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "node",
+
+    "resolveJsonModule": true,
 
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
