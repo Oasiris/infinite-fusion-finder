@@ -19,4 +19,5 @@ help: ## Display this help.
 .PHONY: build-jsons
 build-jsons:
 	$(MAKE) -C scripts build-jsons
-	cp -r scripts/out/pokemon/ frontend/src/data/pokemon/
+	# cp -r scripts/out/pokemon/ frontend/src/data/pokemon/
+	cp -r scripts/out/pokemon-index.json frontend/src/data/pokemon-index.json

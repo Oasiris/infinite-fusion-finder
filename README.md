@@ -6,9 +6,9 @@
 
 #### In both tools already
 
-* Filter by move
+* Filter by move(s)
 * Filter by ability
-* Filter by type
+* Filter by type(s)
 * Sort by BST
 * Sort by specific base stat (Attack, Defense, etc)
 
