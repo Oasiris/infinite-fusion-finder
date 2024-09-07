@@ -1,0 +1,338 @@
+[
+  {
+    "full_move_name": "Bug Bite",
+    "location": "Route 2",
+    "additional_info": "From a bug catcher in a shack on the right side of the route",
+    "price": "2000",
+    "move_name": "bug-bite",
+    "move_id": 450
+  },
+  {
+    "full_move_name": "Fury Cutter",
+    "location": "Route 2",
+    "additional_info": "From a girl in the shack leading into the southern end of Viridan Forest",
+    "price": "200",
+    "move_name": "fury-cutter",
+    "move_id": 210
+  },
+  {
+    "full_move_name": "Mud-Slap",
+    "location": "Pewter City",
+    "additional_info": "Museum top floor from a male scientist",
+    "price": "Free",
+    "move_name": "mud-slap",
+    "move_id": 189
+  },
+  {
+    "full_move_name": "Metronome",
+    "location": "Pewter City",
+    "additional_info": "Museum bottom floor from a male scientist",
+    "price": "Free",
+    "move_name": "metronome",
+    "move_id": 118
+  },
+  {
+    "full_move_name": "Fire Pledge",
+    "location": "Cerulean City",
+    "additional_info": "From a Gentleman in the Pokemon Center",
+    "price": "500",
+    "move_name": "fire-pledge",
+    "move_id": 519
+  },
+  {
+    "full_move_name": "Water Pledge",
+    "location": "Cerulean City",
+    "additional_info": "From a Gentleman in the Pokemon Center",
+    "price": "500",
+    "move_name": "water-pledge",
+    "move_id": 518
+  },
+  {
+    "full_move_name": "Grass Pledge",
+    "location": "Cerulean City",
+    "additional_info": "From a Gentleman in the Pokemon Center",
+    "price": "500",
+    "move_name": "grass-pledge",
+    "move_id": 520
+  },
+  {
+    "full_move_name": "Rollout",
+    "location": "Vermillion City",
+    "additional_info": "From a girl in a house next to the northern entrance of the city",
+    "price": "2000",
+    "move_name": "rollout",
+    "move_id": 205
+  },
+  {
+    "full_move_name": "Wonder Room",
+    "location": "Vermillion City",
+    "additional_info": "From a waiter in the Pokemon Center",
+    "price": "1000",
+    "move_name": "wonder-room",
+    "move_id": 472
+  },
+  {
+    "full_move_name": "Swift",
+    "location": "Vermillion City",
+    "additional_info": "From man in booth leading to S.S. Anne",
+    "price": "2000",
+    "move_name": "swift",
+    "move_id": 129
+  },
+  {
+    "full_move_name": "Crabhammer",
+    "location": "Vermillion City",
+    "additional_info": "Hotel upper floor from bearded man",
+    "price": "Do his quest",
+    "move_name": "crabhammer",
+    "move_id": 152
+  },
+  {
+    "full_move_name": "Hyper Voice",
+    "location": "S.S. Anne",
+    "additional_info": "From guitarist in the restaurant",
+    "price": "4000",
+    "move_name": "hyper-voice",
+    "move_id": 304
+  },
+  {
+    "full_move_name": "Fire Punch",
+    "location": "Celadon City",
+    "additional_info": "From Karate in the Pokemon Center",
+    "price": "5000",
+    "move_name": "fire-punch",
+    "move_id": 7
+  },
+  {
+    "full_move_name": "Thunder Punch",
+    "location": "Celadon City",
+    "additional_info": "From Karate in the Pokemon Center",
+    "price": "5000",
+    "move_name": "thunder-punch",
+    "move_id": 9
+  },
+  {
+    "full_move_name": "Ice Punch",
+    "location": "Celadon City",
+    "additional_info": "From Karate in the Pokemon Center",
+    "price": "5000",
+    "move_name": "ice-punch",
+    "move_id": 8
+  },
+  {
+    "full_move_name": "Soft-Boiled",
+    "location": "Celadon CIty",
+    "additional_info": "Girl in upper hotel",
+    "price": "Do her quest",
+    "move_name": "soft-boiled",
+    "move_id": 135
+  },
+  {
+    "full_move_name": "Roost",
+    "location": "Celadon City",
+    "additional_info": "Girl in house near Department Store",
+    "price": "2000",
+    "move_name": "roost",
+    "move_id": 355
+  },
+  {
+    "full_move_name": "Super Fang",
+    "location": "Celadon City",
+    "additional_info": "Man in house with Ratatas",
+    "price": "2000",
+    "move_name": "super-fang",
+    "move_id": 162
+  },
+  {
+    "full_move_name": "Bounce",
+    "location": "Celadon City",
+    "additional_info": "Woman in upper floor of house with the Developer (As of 6.1, NPC was removed)",
+    "price": "3000",
+    "move_name": "bounce",
+    "move_id": 340
+  },
+  {
+    "full_move_name": "Superpower",
+    "location": "Celadon City",
+    "additional_info": "Fighter on the second floor of the building next to the Pokemon Center",
+    "price": "4000",
+    "move_name": "superpower",
+    "move_id": 276
+  },
+  {
+    "full_move_name": "Ominous Wind",
+    "location": "Lavender Town",
+    "additional_info": "Girl in western house",
+    "price": "2500",
+    "move_name": "ominous-wind",
+    "move_id": 466
+  },
+  {
+    "full_move_name": "Dark Pulse",
+    "location": "Lavender Town - Pokémon Tower",
+    "additional_info": "Lady by the healing tiles after defeating all the Exorcists",
+    "price": "4000",
+    "move_name": "dark-pulse",
+    "move_id": 399
+  },
+  {
+    "full_move_name": "Drill Run",
+    "location": "Route 10",
+    "additional_info": "Builder north of Laveder Town",
+    "price": "2500",
+    "move_name": "drill-run",
+    "move_id": 529
+  },
+  {
+    "full_move_name": "Iron Defense",
+    "location": "Route 10",
+    "additional_info": "From old woman next to Pokemon Center",
+    "price": "2000",
+    "move_name": "iron-defense",
+    "move_id": 334
+  },
+  {
+    "full_move_name": "Iron Tail",
+    "location": "Route 10",
+    "additional_info": "From old man next to Pokemon Center",
+    "price": "4000",
+    "move_name": "iron-tail",
+    "move_id": 231
+  },
+  {
+    "full_move_name": "Iron Head",
+    "location": "Fuchsia City",
+    "additional_info": "Man in Pokemon Center",
+    "price": "3000",
+    "move_name": "iron-head",
+    "move_id": 442
+  },
+  {
+    "full_move_name": "Signal Beam",
+    "location": "Fuchsia City",
+    "additional_info": "Safari Zone area 2 man next tto house",
+    "price": "4000",
+    "move_name": "signal-beam",
+    "move_id": 324
+  },
+  {
+    "full_move_name": "Drain Punch",
+    "location": "Saffron City",
+    "additional_info": "From a fighter in the Pokemon Center (After Clearing Silph Co)",
+    "price": "2000",
+    "move_name": "drain-punch",
+    "move_id": 409
+  },
+  {
+    "full_move_name": "Dragon Pulse",
+    "location": "Saffron City",
+    "additional_info": "From elite trainer in upper floor house near eastern city entrance",
+    "price": "4000",
+    "move_name": "dragon-pulse",
+    "move_id": 406
+  },
+  {
+    "full_move_name": "Gunk Shot",
+    "location": "Saffron City",
+    "additional_info": "Silph Co. 5F from scientist after liberating building",
+    "price": "5000",
+    "move_name": "gunk-shot",
+    "move_id": 441
+  },
+  {
+    "full_move_name": "Zen Headbutt",
+    "location": "Route 7",
+    "additional_info": "From accordeon player in the southern part of the route",
+    "price": "3500",
+    "move_name": "zen-headbutt",
+    "move_id": 428
+  },
+  {
+    "full_move_name": "Sucker Punch",
+    "location": "Route 18",
+    "additional_info": "From a Burglar on the upper floor of the shack leading to the southern Cycling Road exit",
+    "price": "5000",
+    "move_name": "sucker-punch",
+    "move_id": 389
+  },
+  {
+    "full_move_name": "Earth Power",
+    "location": "Cinnabar Island",
+    "additional_info": "From ranger in Pokemon Center",
+    "price": "3500",
+    "move_name": "earth-power",
+    "move_id": 414
+  },
+  {
+    "full_move_name": "Ancient Power",
+    "location": "Cinnabar Island",
+    "additional_info": "Science lab from male scientist in rightmost lab",
+    "price": "2000",
+    "move_name": "ancient-power",
+    "move_id": 246
+  },
+  {
+    "full_move_name": "Stealth Rock",
+    "location": "Cinnabar Island",
+    "additional_info": "Right from Cinnabar Island in a boat",
+    "price": "4000",
+    "move_name": "stealth-rock",
+    "move_id": 446
+  },
+  {
+    "full_move_name": "Outrage",
+    "location": "Crimson City",
+    "additional_info": "From an old man in the southeast house",
+    "price": "10000",
+    "move_name": "outrage",
+    "move_id": 200
+  },
+  {
+    "full_move_name": "Synthesis",
+    "location": "Crimson City",
+    "additional_info": "Hotel upper floor from elite trainer",
+    "price": "Fight quest Bellsprout miniboss",
+    "move_name": "synthesis",
+    "move_id": 235
+  },
+  {
+    "full_move_name": "Shell Smash",
+    "location": "Crimson City",
+    "additional_info": "Hotel upper floor from ranger",
+    "price": "Do her quest",
+    "move_name": "shell-smash",
+    "move_id": 504
+  },
+  {
+    "full_move_name": "Magnet Rise",
+    "location": "(Goldenrod) Train Station",
+    "additional_info": "Scientist sitting at one of the benches",
+    "price": "1500",
+    "move_name": "magnet-rise",
+    "move_id": 393
+  },
+  {
+    "full_move_name": "Role Play",
+    "location": "Radio Tower",
+    "additional_info": "Host in 2nd floor",
+    "price": "5000",
+    "move_name": "role-play",
+    "move_id": 272
+  },
+  {
+    "full_move_name": "Mega Kick",
+    "location": "Route 32",
+    "additional_info": "Female Ace Trainer \"Korrina\"",
+    "price": "Defeat her",
+    "move_name": "mega-kick",
+    "move_id": 25
+  },
+  {
+    "full_move_name": "Gravity",
+    "location": "Violet City",
+    "additional_info": "From Man beside Pokecenter counter",
+    "price": "5000",
+    "move_name": "gravity",
+    "move_id": 356
+  }
+]
